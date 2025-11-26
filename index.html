@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexthosting – Moderne Hosting-Lösungen</title>
+  <style>
+    /* Grundfarben und Schrift */
+    :root {
+      --primary: #1e5bff;
+      --primary-dark: #123a9f;
+      --secondary: #0b1b3f;
+      --background: #f7f9fc;
+      --card-bg: #ffffff;
+      --text: #0b0f1a;
+      --muted: #5c6473;
+      --accent: #00c2ff;
+      --border: #e1e7f0;
+      --shadow: 0 20px 60px rgba(12, 28, 77, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout-Helfer */
+    .container {
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+    }
+
+    .section-spacer {
+      padding: 80px 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(30, 91, 255, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(18, 58, 159, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(30, 91, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* HEADER + NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 6px 24px rgba(11, 27, 63, 0.05);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .logo span {
+      padding: 8px 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--secondary);
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      background: rgba(30, 91, 255, 0.08);
+      color: var(--primary-dark);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* HERO-BEREICH */
+    .hero {
+      padding: 120px 0 90px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.4rem, 3vw + 1rem, 3.6rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--secondary);
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(11, 27, 63, 0.06);
+    }
+
+    .hero-visual {
+      background: radial-gradient(circle at 30% 30%, rgba(30, 91, 255, 0.15), transparent 35%),
+        radial-gradient(circle at 70% 50%, rgba(0, 194, 255, 0.15), transparent 38%),
+        var(--secondary);
+      color: #fff;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .hero-visual h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-visual ul {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-visual li::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: 10px;
+      font-weight: 900;
+    }
+
+    /* PRODUKT-ÜBERSICHT */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 46px rgba(11, 27, 63, 0.12);
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      color: var(--secondary);
+    }
+
+    .product-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    /* VORTEILE / FEATURES */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 30px rgba(11, 27, 63, 0.06);
+      display: grid;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .feature-card .icon {
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* WARUM NEXTHOSTING */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+
+    .why-points {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .why-points li {
+      padding: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(11, 27, 63, 0.05);
+      position: relative;
+    }
+
+    .why-points li::before {
+      content: "•";
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-right: 8px;
+      position: absolute;
+      left: 12px;
+      top: 8px;
+    }
+
+    .why-points strong {
+      margin-left: 16px;
+      display: inline-block;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background: linear-gradient(180deg, #f0f5ff, #ffffff);
+      padding: 70px 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      opacity: 0.2;
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .testimonial .name {
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    .testimonial .role {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* CTA-ABSCHLUSS */
+    .cta-section {
+      background: var(--secondary);
+      color: #fff;
+      padding: 70px 0;
+      text-align: center;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2rem, 2.6vw + 1rem, 2.6rem);
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: #d6d9e3;
+      margin-bottom: 22px;
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a1226;
+      color: #d4d8e3;
+      padding: 60px 0 40px;
+      margin-top: 70px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 14px;
+      color: #fff;
+      font-size: 1.05rem;
+    }
+
+    .footer-grid a {
+      display: block;
+      color: #d4d8e3;
+      padding: 6px 0;
+      font-size: 0.97rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-grid a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      margin-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 16px;
+      font-size: 0.92rem;
+      color: #9ba2b3;
+    }
+
+    /* Responsive Anpassungen */
+    @media (max-width: 900px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        width: 100%;
+      }
+
+      nav a {
+        padding: 8px 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-top: 80px;
+      }
+
+      .nav-actions {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .product-grid, .feature-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER + NAVIGATION -->
+  <header>
+    <div class="container nav-bar">
+      <a class="logo" href="/">
+        <span>NH</span>
+        Nexthosting
+      </a>
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="/">Startseite</a></li>
+          <li><a href="/produkte">Produkte</a></li>
+          <li><a href="/produkte/vps">VPS</a></li>
+          <li><a href="/produkte/root-server">Root Server</a></li>
+          <li><a href="/produkte/gameserver">Gameserver</a></li>
+          <li><a href="/produkte/cloud">Cloud</a></li>
+          <li><a href="/produkte/domains">Domains</a></li>
+          <li><a href="/hilfe-center">Hilfe-Center</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="/login">Kundenlogin</a>
+        <a class="btn btn-primary" href="/produkte">Jetzt starten</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO-BEREICH -->
+    <section class="container hero">
+      <div class="hero-text">
+        <h1>Leistungsstarkes Hosting für deine Projekte – Nexthosting</h1>
+        <p>Moderne Infrastruktur für VPS, Root Server, Gameserver, Cloud-Speicher und Domains. Sicher, schnell und jederzeit bereit, damit deine Ideen wachsen können.</p>
+        <div class="hero-badges">
+          <div class="badge">99,9 % Verfügbarkeit</div>
+          <div class="badge">DDoS-Schutz inklusive</div>
+          <div class="badge">Rechenzentrum in Deutschland</div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/produkte">Jetzt Server wählen</a>
+          <a class="btn btn-secondary" href="/kontakt">Kontakt aufnehmen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <h3>Bereit in wenigen Sekunden</h3>
+        <p>Automatisierte Bereitstellung, skalierbare Leistung und transparente Preise.</p>
+        <ul>
+          <li>Vollständige Root- und SSH-Zugriffe</li>
+          <li>SSD-Storage & schnelle Netzwerke</li>
+          <li>24/7 Monitoring & Support</li>
+          <li>Datensicherheit nach DSGVO</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRODUKT-ÜBERSICHT / HIGHLIGHTS -->
+    <section class="container section-spacer" aria-labelledby="produkte-heading">
+      <div style="margin-bottom: 26px; text-align: center;">
+        <h2 id="produkte-heading">Unsere beliebtesten Lösungen</h2>
+        <p style="color: var(--muted);">Wähle das passende Produkt – flexibel, sicher und jederzeit erweiterbar.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <h3>VPS-Hosting</h3>
+          <p>Flexible virtuelle Server mit vollem Zugriff, ideal für Webprojekte und Anwendungen.</p>
+          <a class="btn btn-primary" href="/produkte/vps">Zu VPS-Tarifen</a>
+        </article>
+        <article class="product-card">
+          <h3>Root Server</h3>
+          <p>Maximale Performance mit dedizierter Hardware und garantierten Ressourcen.</p>
+          <a class="btn btn-primary" href="/produkte/root-server">Zu Root-Servern</a>
+        </article>
+        <article class="product-card">
+          <h3>Gameserver</h3>
+          <p>Optimierte Performance für deine Community mit niedrigen Pings und DDoS-Schutz.</p>
+          <a class="btn btn-primary" href="/produkte/gameserver">Zu Gameservern</a>
+        </article>
+        <article class="product-card">
+          <h3>Cloud-Speicher</h3>
+          <p>Sichere und skalierbare Cloud-Lösungen für Backups, Teams und Datenprojekte.</p>
+          <a class="btn btn-primary" href="/produkte/cloud">Zu Cloud-Lösungen</a>
+        </article>
+        <article class="product-card">
+          <h3>Domains</h3>
+          <p>Registriere deine Wunschdomain mit transparenten Preisen und einfacher Verwaltung.</p>
+          <a class="btn btn-primary" href="/produkte/domains">Domain suchen</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- VORTEILE / FEATURES -->
+    <section class="container section-spacer" aria-labelledby="vorteile-heading">
+      <div style="margin-bottom: 22px; text-align: center;">
+        <h2 id="vorteile-heading">Deine Vorteile mit Nexthosting</h2>
+        <p style="color: var(--muted);">Starkes Fundament für professionelle Projekte.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon">🏢</div>
+          <h3>Rechenzentrum in Deutschland</h3>
+          <p>Sichere Infrastruktur mit niedrigen Latenzen und DSGVO-Konformität.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🛡️</div>
+          <h3>DDoS-Schutz inklusive</h3>
+          <p>Mehrstufige Filterung schützt deine Anwendungen vor Angriffen.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⏱️</div>
+          <h3>99,9 % Verfügbarkeit</h3>
+          <p>Redundante Systeme und Monitoring sichern höchste Uptime.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">⚡</div>
+          <h3>Sofortige Bereitstellung</h3>
+          <p>Automatisierte Provisionierung – in Minuten startklar.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">💡</div>
+          <h3>Faire, transparente Preise</h3>
+          <p>Ohne versteckte Kosten, monatlich kündbar und klar kalkulierbar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WARUM NEXTHOSTING? -->
+    <section class="container section-spacer" aria-labelledby="warum-heading">
+      <div class="why-grid">
+        <div>
+          <h2 id="warum-heading">Warum Nexthosting?</h2>
+          <p style="color: var(--muted); margin-top: 10px;">Wir kombinieren moderne Infrastruktur mit persönlichem Service. Unsere Plattform ist für Wachstum ausgelegt – von ersten Projekten bis zu unternehmenskritischen Workloads.</p>
+          <p style="color: var(--muted); margin-top: 14px;">Mit klaren SLAs, automatisierten Backups und intuitiven Tools behältst du jederzeit die Kontrolle.</p>
+        </div>
+        <ul class="why-points">
+          <li><strong>Rund-um-die-Uhr Überwachung</strong> – proaktives Monitoring und Alarmierung.</li>
+          <li><strong>Flexibles Skalieren</strong> – Ressourcen nach Bedarf erhöhen oder senken.</li>
+          <li><strong>Support von Profis</strong> – deutschsprachige Experten, die wirklich helfen.</li>
+          <li><strong>Sicherheits-First-Mentalität</strong> – regelmäßige Audits und Updates.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KUNDENSTIMMEN / TESTIMONIALS -->
+    <section class="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div style="margin-bottom: 24px; text-align: center;">
+          <h2 id="testimonials-heading">Stimmen unserer Kunden</h2>
+          <p style="color: var(--muted);">Vertrauen entsteht durch Ergebnisse – hier einige Beispiele.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial">
+            <p>„Seit dem Wechsel zu Nexthosting laufen unsere Deployments stabiler und schneller. Besonders schätzen wir den schnellen Support.“</p>
+            <div class="name">Alexandra M.</div>
+            <div class="role">CTO, Tech-Startup</div>
+          </article>
+          <article class="testimonial">
+            <p>„Die Gameserver überzeugen mit niedrigen Pings und verlässlichem DDoS-Schutz. Unsere Community merkt den Unterschied.“</p>
+            <div class="name">Marco L.</div>
+            <div class="role">Community Manager</div>
+          </article>
+          <article class="testimonial">
+            <p>„Transparente Preise und blitzschnelle Bereitstellung – genau das, was wir für unsere Kundenprojekte brauchen.“</p>
+            <div class="name">Sarah M.</div>
+            <div class="role">Agenturinhaberin</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL-TO-ACTION ABSCHLUSS -->
+    <section class="container section-spacer">
+      <div class="cta-section">
+        <h2>Starte jetzt mit Nexthosting</h2>
+        <p>Ob VPS, Root Server oder Cloud – wir machen den Einstieg einfach und begleiten dich auf jedem Schritt.</p>
+        <div class="hero-actions" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="/produkte">Zu den Produkten</a>
+          <a class="btn btn-secondary" href="/kontakt">Angebot anfragen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Produkte</h4>
+          <a href="/produkte">Übersicht</a>
+          <a href="/produkte/vps">VPS</a>
+          <a href="/produkte/root-server">Root Server</a>
+          <a href="/produkte/gameserver">Gameserver</a>
+          <a href="/produkte/cloud">Cloud</a>
+          <a href="/produkte/domains">Domains</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="/hilfe-center">Hilfe-Center</a>
+          <a href="/status">Status</a>
+          <a href="/kontakt">Kontakt</a>
+        </div>
+        <div>
+          <h4>Unternehmen</h4>
+          <a href="/ueber-uns">Über uns</a>
+          <a href="/rechenzentrum">Rechenzentrum</a>
+          <a href="/karriere">Karriere</a>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+          <a href="/agb">AGB</a>
+          <a href="/widerruf">Widerruf</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © Nexthosting 2024 · Professionelle Hosting-Lösungen
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
