@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexthosting – Leistungsstarke Hosting-Plattform</title>
+  <title>Nexthosting – Performance Hosting im Nitrado-Look</title>
   <style>
     /* ----------------------------------------------
-       Grundfarben, Typografie und Helfer
+       Grundfarben, Typografie & Theme (Dark Neon)
     ---------------------------------------------- */
     :root {
-      --primary: #1e5bff;
-      --primary-dark: #0f3aa5;
-      --secondary: #0b1d3c;
-      --accent: #29c6ff;
-      --background: #eaf1ff;
-      --card-bg: #ffffff;
-      --text: #0f223d;
-      --muted: #5c6777;
-      --border: #d7deeb;
-      --shadow: 0 20px 70px rgba(10, 28, 70, 0.08);
-      --radius: 16px;
+      --primary: #7dff4f;
+      --primary-strong: #6bef3f;
+      --primary-muted: rgba(125, 255, 79, 0.12);
+      --secondary: #0c0f16;
+      --panel: #111722;
+      --panel-strong: #0c121d;
+      --border: #1f2937;
+      --text: #e6f0ff;
+      --muted: #96a4ba;
+      --accent: #45f2b6;
+      --gradient: radial-gradient(circle at 15% 20%, rgba(125, 255, 79, 0.15), transparent 40%),
+                  radial-gradient(circle at 80% 0, rgba(69, 242, 182, 0.15), transparent 45%),
+                  #0a0d14;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+      --radius: 18px;
     }
 
     * {
@@ -30,36 +34,47 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at 15% 20%, rgba(30, 91, 255, 0.08), transparent 32%),
-                  radial-gradient(circle at 80% 10%, rgba(41, 198, 255, 0.12), transparent 38%),
-                  var(--background);
+      background: var(--gradient);
       color: var(--text);
       line-height: 1.65;
-      padding: clamp(18px, 2vw, 38px);
+      padding: clamp(18px, 3vw, 38px);
+      letter-spacing: 0.01em;
+      min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     /* ----------------------------------------------
-       Layout-Helfer (volle Breite, aber luftiger Inhalt)
+       Layout & Section Helpers
     ---------------------------------------------- */
     .section-spacer {
-      padding: clamp(32px, 7vw, 84px) clamp(14px, 4vw, 28px);
+      padding: clamp(32px, 6vw, 86px) clamp(14px, 4vw, 32px);
     }
 
     .section-spacer.alt-bg {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), #f3f6ff);
-      border-top: 1px solid rgba(13, 28, 64, 0.06);
-      border-bottom: 1px solid rgba(13, 28, 64, 0.06);
+      background: linear-gradient(180deg, rgba(17, 23, 34, 0.92), rgba(10, 13, 20, 0.96));
+      border-top: 1px solid rgba(69, 242, 182, 0.08);
+      border-bottom: 1px solid rgba(125, 255, 79, 0.08);
     }
 
     .container {
-      width: min(1240px, 95vw);
+      width: min(1280px, 95vw);
       margin: 0 auto;
     }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.6rem, 1.5vw + 1rem, 2rem);
+      color: #f7fffb;
+    }
+
+    .section-heading p { color: var(--muted); max-width: 900px; }
 
     /* ----------------------------------------------
        Buttons
@@ -69,156 +84,117 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      font-weight: 700;
+      font-weight: 800;
       padding: 13px 20px;
       border-radius: 12px;
       border: 2px solid transparent;
-      transition: all 0.25s ease;
-      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+      letter-spacing: 0.02em;
       cursor: pointer;
       text-decoration: none;
       white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      box-shadow: 0 14px 36px rgba(30, 91, 255, 0.35);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #041107;
+      box-shadow: 0 18px 44px rgba(125, 255, 79, 0.35);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 44px rgba(16, 59, 186, 0.35);
-    }
+    .btn-primary:hover { transform: translateY(-2px) scale(1.01); box-shadow: 0 24px 54px rgba(125, 255, 79, 0.45); }
 
     .btn-secondary {
-      background: rgba(30, 91, 255, 0.08);
-      color: var(--primary-dark);
-      border-color: rgba(30, 91, 255, 0.25);
+      background: rgba(255, 255, 255, 0.06);
+      color: #e8f4ff;
+      border-color: rgba(125, 255, 79, 0.25);
     }
 
-    .btn-secondary:hover {
-      background: rgba(30, 91, 255, 0.16);
-      transform: translateY(-2px);
-    }
-
-    .section-heading {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 860px;
-    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
 
     /* ----------------------------------------------
-       HERO-BEREICH
+       Hero & Lead Area (full width feel)
     ---------------------------------------------- */
+    .hero-shell {
+      background: radial-gradient(circle at 10% 0%, rgba(125, 255, 79, 0.12), transparent 35%),
+                  radial-gradient(circle at 90% 10%, rgba(69, 242, 182, 0.16), transparent 45%),
+                  linear-gradient(135deg, #101829, #0c121c);
+      border: 1px solid rgba(125, 255, 79, 0.12);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 42px);
+    }
+
     .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: clamp(22px, 3vw, 42px);
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: clamp(24px, 3vw, 46px);
       align-items: center;
-      padding: clamp(22px, 3vw, 32px);
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(234, 241, 255, 0.8));
-      border-radius: 24px;
-      border: 1px solid rgba(13, 28, 64, 0.08);
-      box-shadow: 0 24px 48px rgba(10, 28, 70, 0.08);
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 2vw + 1.5rem, 3.4rem);
+      font-size: clamp(2.4rem, 2.4vw + 1.5rem, 3.6rem);
       line-height: 1.1;
-      margin-bottom: 16px;
-      color: var(--secondary);
+      margin-bottom: 14px;
+      color: #f5ffe8;
     }
 
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 720px;
-      margin-bottom: 22px;
-    }
+    .hero p { color: var(--muted); font-size: 1.04rem; max-width: 780px; }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
-    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 10px; }
 
-    .hero-tags {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 18px 0;
-    }
+    .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
 
     .tag {
       padding: 10px 14px;
-      background: rgba(13, 28, 64, 0.06);
-      border: 1px solid var(--border);
+      background: var(--primary-muted);
+      border: 1px solid rgba(125, 255, 79, 0.35);
       border-radius: 999px;
-      color: var(--secondary);
+      color: #c4ffd1;
       font-weight: 700;
     }
 
     .hero-visual {
-      background: radial-gradient(circle at 30% 30%, rgba(30, 91, 255, 0.18), transparent 40%),
-                  radial-gradient(circle at 72% 62%, rgba(41, 198, 255, 0.2), transparent 40%),
-                  #0f1e43;
-      color: #eaf2ff;
-      padding: clamp(18px, 4vw, 32px);
-      border-radius: var(--radius);
+      background: radial-gradient(circle at 30% 30%, rgba(125, 255, 79, 0.25), transparent 45%),
+                  radial-gradient(circle at 70% 70%, rgba(69, 242, 182, 0.22), transparent 48%),
+                  #0b101a;
+      border: 1px solid rgba(125, 255, 79, 0.2);
+      border-radius: 18px;
+      padding: clamp(20px, 4vw, 30px);
       position: relative;
       overflow: hidden;
       min-height: 320px;
       display: grid;
       gap: 14px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
     }
 
     .hero-visual::after {
       content: "";
       position: absolute;
       inset: 16px;
-      border: 1px dashed rgba(255, 255, 255, 0.18);
-      border-radius: calc(var(--radius) - 6px);
+      border: 1px dashed rgba(198, 255, 198, 0.22);
+      border-radius: 14px;
       pointer-events: none;
     }
 
-    .hero-visual h3 {
-      font-size: 1.15rem;
-    }
+    .hero-visual h3 { font-size: 1.16rem; color: #f5ffe8; }
 
-    .hero-visual ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
+    .hero-visual ul { list-style: none; display: grid; gap: 10px; font-size: 0.98rem; color: #d9e6ff; }
 
-    .hero-visual li::before {
-      content: "✓";
-      color: var(--accent);
-      margin-right: 10px;
-      font-weight: 900;
-    }
+    .hero-visual li::before { content: "✓"; color: var(--primary); margin-right: 10px; font-weight: 900; }
 
     /* ----------------------------------------------
-       TRUST-BAR & QUICKLINKS
+       Trust Bar & Quicklinks
     ---------------------------------------------- */
     .bar {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(125, 255, 79, 0.18);
       border-radius: 14px;
       padding: 12px 14px;
-      box-shadow: 0 10px 28px rgba(10, 28, 70, 0.07);
       width: 100%;
     }
 
@@ -226,275 +202,230 @@
       flex: 1 1 180px;
       display: grid;
       gap: 4px;
-      color: var(--secondary);
-      font-weight: 700;
-      min-height: 60px;
+      color: #e6f5dd;
+      font-weight: 800;
+      min-height: 62px;
     }
 
-    .bar-item small {
-      color: var(--muted);
-      font-weight: 600;
+    .bar-item small { color: var(--muted); font-weight: 600; }
+
+    .pill-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
+    .pill-nav a {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(125, 255, 79, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e8f6ff;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
+
+    .pill-nav a:hover { background: rgba(125, 255, 79, 0.12); }
 
     /* ----------------------------------------------
-       PRODUKT-ÜBERSICHT
+       Produkt-Highlights
     ---------------------------------------------- */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
 
     .product-card {
-      background: var(--card-bg);
-      padding: 24px 22px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+      padding: 22px 20px;
       border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 14px 34px rgba(10, 28, 70, 0.08);
+      border: 1px solid rgba(125, 255, 79, 0.18);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
       display: grid;
-      gap: 14px;
-      min-height: 240px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      gap: 12px;
+      min-height: 230px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(125, 255, 79, 0.12), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
     }
 
     .product-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 22px 46px rgba(10, 28, 70, 0.12);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.38);
+      border-color: rgba(125, 255, 79, 0.35);
     }
 
-    .product-card h3 {
-      font-size: 1.18rem;
-      color: var(--secondary);
-    }
+    .product-card:hover::before { opacity: 1; }
 
-    .product-card p {
-      color: var(--muted);
-      font-size: 0.99rem;
-      line-height: 1.7;
-    }
+    .product-card h3 { font-size: 1.16rem; color: #f8ffe8; }
 
-    .pill-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .pill-nav a {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(13, 28, 64, 0.04);
-      color: var(--secondary);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
+    .product-card p { color: var(--muted); font-size: 0.99rem; line-height: 1.7; }
 
     /* ----------------------------------------------
-       FEATURE-GRID
+       Feature Grid
     ---------------------------------------------- */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 18px;
-    }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
 
     .feature-card {
-      background: var(--card-bg);
-      padding: 20px 18px;
+      background: var(--panel);
+      padding: 18px 16px;
       border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(10, 28, 70, 0.07);
+      border: 1px solid rgba(125, 255, 79, 0.14);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
       display: grid;
       gap: 10px;
       text-align: center;
-      min-height: 190px;
+      min-height: 170px;
     }
 
-    .feature-card .icon {
-      font-size: 1.4rem;
-      color: var(--primary);
-      font-weight: 700;
-    }
+    .feature-card .icon { font-size: 1.3rem; color: var(--primary); font-weight: 800; }
+    .feature-card h3 { color: #f5ffe8; }
+    .feature-card p { color: var(--muted); font-size: 0.95rem; }
 
     /* ----------------------------------------------
-       WARUM NEXTHOSTING
+       Why Nexthosting (Two-Column)
     ---------------------------------------------- */
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      align-items: center;
-    }
-
-    .why-points {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-    }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; align-items: center; }
+    .why-points { list-style: none; display: grid; gap: 12px; }
 
     .why-points li {
-      padding: 14px 16px 14px 22px;
-      background: linear-gradient(90deg, rgba(30, 91, 255, 0.08), rgba(30, 91, 255, 0.02));
-      border: 1px solid var(--border);
+      padding: 14px 16px 14px 24px;
+      background: linear-gradient(90deg, rgba(125, 255, 79, 0.15), rgba(12, 17, 28, 0.95));
+      border: 1px solid rgba(125, 255, 79, 0.18);
       border-radius: 12px;
       position: relative;
-      color: var(--secondary);
+      color: #e9fbea;
     }
 
-    .why-points li::before {
-      content: "•";
-      color: var(--primary);
-      font-size: 1.4rem;
-      position: absolute;
-      left: 10px;
-      top: 6px;
-    }
+    .why-points li::before { content: "•"; color: var(--primary); font-size: 1.4rem; position: absolute; left: 10px; top: 6px; }
 
     /* ----------------------------------------------
-       TESTIMONIALS
+       Media Slots (Image placeholders)
     ---------------------------------------------- */
-    .testimonials {
-      background: linear-gradient(180deg, #f3f6ff, #ffffff);
-      padding: clamp(30px, 6vw, 72px);
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: 0 16px 40px rgba(10, 28, 70, 0.08);
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 18px;
-    }
-
-    .testimonial {
-      background: #fff;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-
-    .testimonial::before {
-      content: "“";
-      font-size: 2.5rem;
-      color: var(--primary);
-      position: absolute;
-      top: -6px;
-      left: 14px;
-      opacity: 0.2;
-    }
-
-    .testimonial p {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .testimonial .name {
-      font-weight: 800;
-      color: var(--secondary);
-    }
-
-    .testimonial .role {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* ----------------------------------------------
-       CTA-ABSCHLUSS & MEDIA-SLOTS
-    ---------------------------------------------- */
-    .cta-section {
-      background: linear-gradient(135deg, var(--secondary), #0f2a66);
-      color: #fff;
-      padding: clamp(28px, 5vw, 70px);
-      text-align: center;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-section p {
-      color: #d9e4ff;
-      margin: 12px auto 18px;
-      max-width: 700px;
-    }
-
     .media-slot {
-      border: 2px dashed var(--border);
+      border: 2px dashed rgba(125, 255, 79, 0.35);
       border-radius: 14px;
       padding: 20px;
       text-align: center;
       color: var(--muted);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 0.96rem;
     }
 
     /* ----------------------------------------------
-       INFO BLOCKS & FAQ
+       Info Blocks & FAQ
     ---------------------------------------------- */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 
     .info-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: var(--panel);
+      border: 1px solid rgba(125, 255, 79, 0.16);
       border-radius: 12px;
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(10, 28, 70, 0.07);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
       display: grid;
       gap: 8px;
+      min-height: 150px;
     }
 
-    .faq {
-      display: grid;
-      gap: 12px;
-    }
+    .faq { display: grid; gap: 12px; }
 
     .faq-item {
       padding: 14px 16px;
       border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(13, 28, 64, 0.03);
+      border: 1px solid rgba(125, 255, 79, 0.18);
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .faq-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--secondary);
-    }
+    .faq-item strong { display: block; margin-bottom: 6px; color: #f4ffe7; }
+    .faq-item span { color: var(--muted); }
 
     /* ----------------------------------------------
-       Responsive Anpassungen
+       Testimonials
     ---------------------------------------------- */
-    @media (max-width: 720px) {
+    .testimonials {
+      background: linear-gradient(180deg, rgba(17, 23, 34, 0.95), rgba(12, 15, 22, 0.94));
+      padding: clamp(30px, 5vw, 64px);
+      border-radius: 18px;
+      border: 1px solid rgba(125, 255, 79, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+
+    .testimonial {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 14px;
+      border: 1px solid rgba(125, 255, 79, 0.12);
+      padding: 18px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+      position: relative;
+    }
+
+    .testimonial::before { content: "\201C"; font-size: 2.4rem; color: var(--primary); position: absolute; top: -8px; left: 12px; opacity: 0.25; }
+
+    .testimonial p { color: var(--muted); margin-bottom: 12px; }
+    .testimonial .name { font-weight: 800; color: #f5ffe8; }
+    .testimonial .role { color: var(--muted); font-size: 0.95rem; }
+
+    /* ----------------------------------------------
+       CTA Abschluss
+    ---------------------------------------------- */
+    .cta-section {
+      background: radial-gradient(circle at 20% 0, rgba(125, 255, 79, 0.2), transparent 42%),
+                  linear-gradient(135deg, #0d141f, #0a0f18);
+      color: #f8ffe8;
+      padding: clamp(26px, 5vw, 54px);
+      text-align: center;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(125, 255, 79, 0.2);
+    }
+
+    .cta-section p { color: #cfe6cb; margin: 12px auto 18px; max-width: 760px; }
+
+    /* ----------------------------------------------
+       Responsive tweaks
+    ---------------------------------------------- */
+    @media (max-width: 860px) {
+      body { padding: 14px; }
       .btn { width: 100%; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 260px; }
       .hero-actions { width: 100%; }
       .hero-actions .btn { flex: 1; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 260px; }
+      .section-spacer { padding-inline: 12px; }
     }
   </style>
 </head>
 <body>
   <main>
-    <!-- HERO-BEREICH (ohne Header) -->
+    <!-- HERO-BEREICH (breit, nitrado-inspiriert) -->
     <section class="section-spacer" aria-labelledby="hero-heading">
-      <div class="container">
+      <div class="container hero-shell">
         <div class="hero">
           <div>
-            <h1 id="hero-heading">Leistungsstarkes Hosting für deine Projekte</h1>
-            <p>VPS, Root Server, Gameserver, Cloud-Speicher und Domains – Nexthosting liefert die Plattform, auf der Ideen wachsen. Skalierbar, sicher und mit deutschsprachigem Support.</p>
+            <h1 id="hero-heading">Nexthosting – Geschwindigkeit wie auf dem nächsten Level</h1>
+            <p>Leistungsstarke VPS, Root Server, Gameserver und Cloud-Speicher mit sofortiger Bereitstellung. Modernes Panel, API-first, DDoS-Schutz und kompromisslose Performance – bereit für deine Projekte.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="/produkte">Jetzt Server wählen</a>
-              <a class="btn btn-secondary" href="/kontakt">Kontakt aufnehmen</a>
+              <a class="btn btn-primary" href="/produkte">Jetzt durchstarten</a>
+              <a class="btn btn-secondary" href="/kontakt">Angebot anfragen</a>
             </div>
             <div class="hero-tags">
-              <span class="tag">99,9 % Verfügbarkeit</span>
+              <span class="tag">99,9 % Uptime SLA</span>
               <span class="tag">DDoS-Schutz inklusive</span>
-              <span class="tag">Rechenzentrum in Deutschland</span>
+              <span class="tag">DE-Rechenzentrum</span>
+              <span class="tag">API &amp; Panel</span>
             </div>
             <div class="pill-nav" aria-label="Produkt-Schnellzugriff">
               <a href="/produkte/vps">VPS</a>
@@ -523,12 +454,12 @@
       </div>
     </section>
 
-    <!-- OPTIONALER MEDIENPLATZHALTER -->
+    <!-- OPTIONALER MEDIENPLATZHALTER FÜR HERO/HEADLINE VISUAL -->
     <section class="section-spacer alt-bg">
       <div class="container">
         <div class="media-slot">
           <strong>Bild- oder Grafik-Platzhalter</strong><br>
-          Drag &amp; Drop möglich – z. B. Infrastruktur-Visual, Diagramm oder Teamfoto (1200 x 520 px empfohlen)
+          Drag &amp; Drop möglich – z. B. Infrastruktur-Visual, Dashboard-Screenshot oder Gaming-Szene (1200 x 520 px empfohlen).
         </div>
       </div>
     </section>
@@ -538,7 +469,7 @@
       <div class="container">
         <div class="section-heading">
           <h2 id="produkte-heading">Produkte im Überblick</h2>
-          <p>Konzipiert für Entwickler, Agenturen und Unternehmen – flexible Ressourcen, transparente Preise und sofortige Aktivierung.</p>
+          <p>Premium-Hardware, schnelle Netzwerke und transparente Preise – für Entwickler, Agenturen und ambitionierte Communities.</p>
         </div>
         <div class="product-grid">
           <article class="product-card">
@@ -590,7 +521,7 @@
       <div class="container">
         <div class="section-heading">
           <h2 id="features-heading">Vorteile auf einen Blick</h2>
-          <p>Kernfeatures für maximale Stabilität, Sicherheit und Transparenz.</p>
+          <p>Kernfeatures für maximale Stabilität, Sicherheit und Transparenz – inspiriert von Gaming-Performance.</p>
         </div>
         <div class="feature-grid">
           <div class="feature-card">
