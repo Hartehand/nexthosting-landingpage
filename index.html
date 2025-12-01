@@ -1,0 +1,478 @@
+<div class="nexthosting-landing">
+  <style>
+    .nexthosting-landing { font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif; color: #0f172a; background: #f8fafc; padding: 32px 0 80px; }
+    .nexthosting-landing * { box-sizing: border-box; }
+    .nexthosting-landing a { text-decoration: none; color: inherit; }
+    .nexthosting-landing .nh-container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+    .nexthosting-landing .nh-grid { display: grid; gap: 24px; }
+    .nexthosting-landing .nh-hero { background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 40%, #f5f9ff 100%); border: 1px solid #e5ecf6; box-shadow: 0 30px 60px rgba(15, 23, 42, 0.07); border-radius: 24px; padding: 38px 36px; position: relative; overflow: hidden; }
+    .nexthosting-landing .nh-hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.08), transparent 35%), radial-gradient(circle at 15% 40%, rgba(14, 165, 233, 0.06), transparent 35%); pointer-events: none; }
+    .nexthosting-landing .nh-hero-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; position: relative; z-index: 1; align-items: center; }
+    .nexthosting-landing .nh-badge { display: inline-flex; align-items: center; gap: 10px; background: #0ea5e9; color: #fff; padding: 8px 14px; border-radius: 999px; font-weight: 600; letter-spacing: 0.01em; box-shadow: 0 10px 30px rgba(14, 165, 233, 0.35); }
+    .nexthosting-landing .nh-badge span { background: rgba(255,255,255,0.2); padding: 6px 8px; border-radius: 999px; font-size: 12px; }
+    .nexthosting-landing h1 { font-size: clamp(32px, 4vw, 46px); line-height: 1.1; margin: 14px 0 10px; color: #0b1b3a; }
+    .nexthosting-landing p { color: #334155; line-height: 1.6; }
+    .nexthosting-landing .nh-chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
+    .nexthosting-landing .nh-chip { padding: 8px 12px; border-radius: 999px; background: #e2ecff; color: #1d4ed8; font-weight: 600; font-size: 13px; box-shadow: inset 0 0 0 1px #d6e4ff; }
+    .nexthosting-landing .nh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 16px; }
+    .nexthosting-landing .nh-stat-card { background: #fff; border-radius: 14px; padding: 14px; border: 1px solid #e2e8f0; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.05); }
+    .nexthosting-landing .nh-stat-card strong { display: block; font-size: 22px; color: #0f172a; }
+    .nexthosting-landing .nh-stat-card span { color: #475569; font-size: 13px; }
+    .nexthosting-landing .nh-primary-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: linear-gradient(120deg, #0ea5e9, #6366f1); color: #fff; border-radius: 12px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 18px 38px rgba(14, 165, 233, 0.35); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .nexthosting-landing .nh-primary-btn:hover { transform: translateY(-1px); box-shadow: 0 22px 40px rgba(99, 102, 241, 0.28); }
+    .nexthosting-landing .nh-secondary-link { margin-left: 14px; color: #0ea5e9; font-weight: 700; }
+    .nexthosting-landing .nh-hero-card { background: #fff; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08); padding: 22px; display: grid; gap: 10px; }
+    .nexthosting-landing .nh-hero-card h3 { margin: 0; font-size: 22px; color: #0f172a; }
+    .nexthosting-landing .nh-hero-list { display: grid; gap: 8px; padding: 0; margin: 0; list-style: none; }
+    .nexthosting-landing .nh-hero-list li { display: flex; align-items: center; gap: 10px; background: #f8fafc; padding: 10px 12px; border-radius: 12px; border: 1px dashed #dbeafe; }
+    .nexthosting-landing .nh-hero-icon { width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #0ea5e9, #67e8f9); color: #0b1b3a; font-weight: 800; }
+
+    /* Tabs */
+    .nexthosting-landing .nh-tabs { margin: 46px auto 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .nexthosting-landing .nh-tab { padding: 10px 16px; border-radius: 12px; border: 1px solid #dbeafe; background: #fff; color: #0f172a; font-weight: 700; cursor: pointer; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05); transition: all 0.2s ease; }
+    .nexthosting-landing .nh-tab.active { background: linear-gradient(120deg, #0ea5e9, #6366f1); color: #fff; border-color: transparent; box-shadow: 0 18px 40px rgba(99, 102, 241, 0.28); }
+
+    /* Cards */
+    .nexthosting-landing .nh-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 16px; }
+    .nexthosting-landing .nh-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05); position: relative; overflow: hidden; transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.15s ease; }
+    .nexthosting-landing .nh-card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(99, 102, 241, 0.15); border-color: #cbd5e1; }
+    .nexthosting-landing .nh-card h4 { margin: 0 0 8px; font-size: 18px; color: #0b1b3a; }
+    .nexthosting-landing .nh-card p { margin: 0 0 12px; color: #475569; }
+    .nexthosting-landing .nh-price { font-size: 22px; font-weight: 800; color: #0f172a; }
+    .nexthosting-landing .nh-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; margin-top: 10px; }
+    .nexthosting-landing .nh-meta span { padding: 8px 10px; background: #f8fafc; border-radius: 10px; font-weight: 600; color: #0f172a; border: 1px dashed #e2e8f0; font-size: 13px; }
+    .nexthosting-landing .nh-pill { position: absolute; top: 14px; right: 14px; background: #ecfeff; color: #0ea5e9; padding: 6px 10px; border-radius: 999px; font-weight: 700; border: 1px solid #bae6fd; font-size: 12px; }
+
+    /* Carousel */
+    .nexthosting-landing .nh-carousel { position: relative; overflow: hidden; }
+    .nexthosting-landing .nh-carousel-track { display: flex; gap: 14px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 6px; }
+    .nexthosting-landing .nh-carousel-track::-webkit-scrollbar { height: 10px; }
+    .nexthosting-landing .nh-carousel-track::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    .nexthosting-landing .nh-carousel-track::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 999px; }
+    .nexthosting-landing .nh-carousel-controls { position: absolute; right: 12px; top: -46px; display: flex; gap: 8px; }
+    .nexthosting-landing .nh-carousel-btn { width: 36px; height: 36px; border-radius: 12px; border: 1px solid #dbeafe; background: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); transition: all 0.2s ease; }
+    .nexthosting-landing .nh-carousel-btn:hover { background: #0ea5e9; color: #fff; border-color: transparent; }
+
+    /* Features, trust, FAQ, blog */
+    .nexthosting-landing .nh-section { margin: 60px auto 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 28px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.05); }
+    .nexthosting-landing .nh-section h3 { margin: 0 0 12px; font-size: 24px; color: #0f172a; }
+    .nexthosting-landing .nh-section p.section-lead { margin: 0 0 18px; color: #475569; }
+    .nexthosting-landing .nh-feature { display: grid; gap: 10px; padding: 14px; background: #f8fafc; border-radius: 14px; border: 1px dashed #dbeafe; }
+    .nexthosting-landing .nh-feature strong { font-size: 16px; color: #0f172a; }
+    .nexthosting-landing .nh-feature span { color: #475569; }
+    .nexthosting-landing .nh-icon { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: linear-gradient(135deg, #a5b4fc, #67e8f9); color: #0b1b3a; font-weight: 800; }
+    .nexthosting-landing .nh-flex { display: flex; gap: 12px; align-items: center; }
+
+    .nexthosting-landing .nh-testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+    .nexthosting-landing .nh-testimonial { padding: 16px; border-radius: 16px; background: #f8fafc; border: 1px solid #e2e8f0; box-shadow: inset 0 0 0 1px #e5ecf6; }
+    .nexthosting-landing .nh-stars { color: #f59e0b; }
+    .nexthosting-landing .nh-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #0ea5e9, #a5b4fc); display: grid; place-items: center; color: #fff; font-weight: 800; }
+
+    .nexthosting-landing .nh-faq { display: grid; gap: 10px; margin-top: 14px; }
+    .nexthosting-landing .nh-faq-item { border: 1px solid #e2e8f0; border-radius: 14px; background: #f8fafc; overflow: hidden; }
+    .nexthosting-landing .nh-faq-question { display: flex; justify-content: space-between; align-items: center; padding: 14px; cursor: pointer; font-weight: 700; color: #0f172a; }
+    .nexthosting-landing .nh-faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.25s ease, padding 0.25s ease; padding: 0 14px; color: #475569; }
+    .nexthosting-landing .nh-faq-item.active .nh-faq-answer { max-height: 400px; padding: 0 14px 14px; }
+
+    .nexthosting-landing .nh-blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+    .nexthosting-landing .nh-blog-card { padding: 16px; border-radius: 16px; border: 1px solid #e2e8f0; background: #fff; box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05); display: grid; gap: 10px; }
+    .nexthosting-landing .nh-blog-image { border-radius: 12px; height: 120px; background: linear-gradient(135deg, #e0f2fe, #c7d2fe); }
+    .nexthosting-landing .nh-summary { display: grid; gap: 10px; }
+
+    .nexthosting-landing .nh-subtle-link { color: #0ea5e9; font-weight: 700; }
+    .nexthosting-landing .nh-highlight { background: #ecfeff; padding: 8px 10px; border-radius: 10px; font-weight: 700; color: #0f172a; display: inline-flex; align-items: center; gap: 8px; }
+
+    @media (max-width: 768px) {
+      .nexthosting-landing { padding: 24px 0 50px; }
+      .nexthosting-landing .nh-hero { padding: 28px 24px; }
+      .nexthosting-landing .nh-carousel-controls { position: static; justify-content: flex-end; margin-bottom: 8px; }
+    }
+  </style>
+
+  <div class="nh-container nh-hero">
+    <div class="nh-hero-inner">
+      <div>
+        <div class="nh-badge">Nexthosting <span>High Performance Hosting made in Germany</span></div>
+        <h1>Geschwindigkeit auf dem nächsten Level</h1>
+        <p>VPS, Root Server, Gameserver, Cloud-Speicher und Domains – mit sofortiger Bereitstellung, DDoS-Schutz, intuitivem Panel und flexibler API. Entwickelt für Teams, Communities und ambitionierte Projekte.</p>
+        <div class="nh-chip-row">
+          <div class="nh-chip">99,9 % Uptime</div>
+          <div class="nh-chip">DDoS-Schutz inklusive</div>
+          <div class="nh-chip">DE-Rechenzentrum</div>
+          <div class="nh-chip">API & Panel</div>
+        </div>
+        <div class="nh-stats">
+          <div class="nh-stat-card"><strong>200+ Projekte</strong><span>laufen schon auf Nexthosting</span></div>
+          <div class="nh-stat-card"><strong>&lt; 5 ms</strong><span>Latenz im Backbone</span></div>
+          <div class="nh-stat-card"><strong>24/7</strong><span>Support & Incident-Response</span></div>
+        </div>
+        <div style="margin-top: 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <button class="nh-primary-btn">Mehr zu unseren Produkten</button>
+          <a class="nh-secondary-link" href="#nh-products">Produkte ansehen →</a>
+        </div>
+      </div>
+      <div>
+        <div class="nh-hero-card">
+          <h3>Enterprise-Infrastruktur</h3>
+          <ul class="nh-hero-list">
+            <li><div class="nh-hero-icon">⚡</div><div><strong>NVMe-Storage</strong><br><small>Schnelle I/O für Datenbanken & Apps</small></div></li>
+            <li><div class="nh-hero-icon">🔗</div><div><strong>10 Gbit Backbone</strong><br><small>Hohe Bandbreite mit Peering in DE/EU</small></div></li>
+            <li><div class="nh-hero-icon">🛡️</div><div><strong>DDoS-Mitigation</strong><br><small>Immer aktiv, inklusive bei jedem Tarif</small></div></li>
+            <li><div class="nh-hero-icon">🏛️</div><div><strong>ISO-zertifiziert</strong><br><small>Rechenzentrum in Deutschland</small></div></li>
+            <li><div class="nh-hero-icon">📸</div><div><strong>Snapshots & Backups</strong><br><small>Versionierte Sicherungen & Restore</small></div></li>
+            <li><div class="nh-hero-icon">📈</div><div><strong>Auto-Scaling</strong><br><small>Vertikal wachsen ohne Downtime</small></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nh-container" id="nh-products">
+    <div class="nh-tabs">
+      <button class="nh-tab active" data-tab="vps">VPS</button>
+      <button class="nh-tab" data-tab="gameserver">Gameserver</button>
+      <button class="nh-tab" data-tab="root">Root Server</button>
+      <button class="nh-tab" data-tab="cloud">Cloud</button>
+      <button class="nh-tab" data-tab="domains">Domains</button>
+    </div>
+
+    <div class="nh-tab-content" data-tab-content="vps">
+      <div class="nh-card-grid">
+        <a class="nh-card" href="/vps-basic">
+          <div class="nh-pill">Starter</div>
+          <h4>VPS Basic</h4>
+          <p>Der ideale Einstieg für kleine Projekte und Dev-Umgebungen.</p>
+          <div class="nh-price">6,90 € / Monat</div>
+          <div class="nh-meta">
+            <span>2 vCores</span><span>4 GB RAM</span><span>80 GB NVMe</span><span>Unmetered Traffic</span>
+          </div>
+        </a>
+        <a class="nh-card" href="/vps-pro">
+          <div class="nh-pill" style="background:#eef2ff; border-color:#c7d2fe; color:#4338ca;">Beliebt</div>
+          <h4>VPS Pro</h4>
+          <p>Mehr Leistung für produktive Anwendungen, Bots und Shops.</p>
+          <div class="nh-price">12,90 € / Monat</div>
+          <div class="nh-meta">
+            <span>4 vCores</span><span>8 GB RAM</span><span>160 GB NVMe</span><span>10 TB Traffic</span>
+          </div>
+        </a>
+        <a class="nh-card" href="/vps-enterprise">
+          <div class="nh-pill" style="background:#e0f2fe; border-color:#bae6fd; color:#0ea5e9;">Performance</div>
+          <h4>VPS Enterprise</h4>
+          <p>Für datenintensive Workloads, SaaS-Projekte und Teams.</p>
+          <div class="nh-price">24,90 € / Monat</div>
+          <div class="nh-meta">
+            <span>8 vCores</span><span>16 GB RAM</span><span>320 GB NVMe</span><span>25 TB Traffic</span>
+          </div>
+        </a>
+        <a class="nh-card" href="/vps-custom">
+          <div class="nh-pill" style="background:#ecfeff; border-color:#a5f3fc; color:#0f172a;">Flexibel</div>
+          <h4>VPS Custom</h4>
+          <p>Skaliere Ressourcen frei, inklusive Private Networking und API.</p>
+          <div class="nh-price">ab 29,90 € / Monat</div>
+          <div class="nh-meta">
+            <span>Bis 32 vCores</span><span>Bis 128 GB RAM</span><span>NVMe Cluster</span><span>Skalierbarer Traffic</span>
+          </div>
+        </a>
+      </div>
+      <p style="margin-top:12px; color:#475569;">Du brauchst auch Domains oder Backups? <a class="nh-subtle-link" data-tab-jump="domains" href="#">Domains reservieren</a> · <a class="nh-subtle-link" data-tab-jump="cloud" href="#">Cloud-Backups sichern</a></p>
+    </div>
+
+    <div class="nh-tab-content" data-tab-content="gameserver" style="display:none;">
+      <div class="nh-carousel" aria-label="Gameserver-Karussell">
+        <div class="nh-carousel-controls">
+          <button class="nh-carousel-btn" data-dir="-1">←</button>
+          <button class="nh-carousel-btn" data-dir="1">→</button>
+        </div>
+        <div class="nh-carousel-track">
+          <a class="nh-card" href="/games/minecraft" style="min-width:260px;">
+            <div class="nh-pill">Minecraft</div>
+            <h4>MC Java & Bedrock</h4>
+            <p>One-Click Modpacks, Paper & Forge, schnelle Welt-Backups.</p>
+            <div class="nh-meta"><span>Bis 200 Slots</span><span>Bis 16 GB RAM</span><span>DE/AMS Standort</span></div>
+            <div class="nh-price">ab 7,90 €</div>
+          </a>
+          <a class="nh-card" href="/games/fivem" style="min-width:260px;">
+            <div class="nh-pill" style="background:#e0f2fe; border-color:#bae6fd; color:#0ea5e9;">Roleplay</div>
+            <h4>FiveM</h4>
+            <p>Optimiert für Scripts & Assets, mit Snapshot-Rollbacks.</p>
+            <div class="nh-meta"><span>Bis 128 Slots</span><span>Bis 12 GB RAM</span><span>DE Standort</span></div>
+            <div class="nh-price">ab 9,90 €</div>
+          </a>
+          <a class="nh-card" href="/games/rust" style="min-width:260px;">
+            <div class="nh-pill" style="background:#eef2ff; border-color:#c7d2fe; color:#4338ca;">Survival</div>
+            <h4>Rust</h4>
+            <p>Wipes, BPs, Performance-Monitoring und DDoS-Schutz.</p>
+            <div class="nh-meta"><span>150 Slots</span><span>Bis 16 GB RAM</span><span>EU Standort</span></div>
+            <div class="nh-price">ab 11,90 €</div>
+          </a>
+          <a class="nh-card" href="/games/gmod" style="min-width:260px;">
+            <div class="nh-pill">Sandbox</div>
+            <h4>Garry's Mod</h4>
+            <p>DarkRP, TTT oder Sandbox – schnelle Workshop-Downloads.</p>
+            <div class="nh-meta"><span>100 Slots</span><span>Bis 10 GB RAM</span><span>DE/FR Standort</span></div>
+            <div class="nh-price">ab 8,90 €</div>
+          </a>
+          <a class="nh-card" href="/games/scpsl" style="min-width:260px;">
+            <div class="nh-pill">Community</div>
+            <h4>SCP: SL</h4>
+            <p>Hohe Tickrate, automatische Restarts, Live-Console.</p>
+            <div class="nh-meta"><span>Bis 60 Slots</span><span>Bis 8 GB RAM</span><span>DE Standort</span></div>
+            <div class="nh-price">ab 6,90 €</div>
+          </a>
+          <a class="nh-card" href="/games/custom" style="min-width:260px;">
+            <div class="nh-pill" style="background:#ecfeff; border-color:#a5f3fc; color:#0f172a;">Individuell</div>
+            <h4>Custom Gameserver</h4>
+            <p>Plane Community-Events, modded Server oder eSports-Projekte mit maßgeschneiderten Ressourcen.</p>
+            <div class="nh-meta"><span>Flex Slots</span><span>Skalierbare Cores</span><span>Multi-Standort</span></div>
+            <div class="nh-price">Beratung inklusive</div>
+          </a>
+        </div>
+      </div>
+      <p style="margin-top:12px; color:#475569;">Auch Root Server oder Domains im Blick? <a class="nh-subtle-link" data-tab-jump="root" href="#">Root-Server entdecken</a> · <a class="nh-subtle-link" data-tab-jump="domains" href="#">Domain sichern</a></p>
+    </div>
+
+    <div class="nh-tab-content" data-tab-content="root" style="display:none;">
+      <div class="nh-card-grid">
+        <a class="nh-card" href="/root-standard">
+          <div class="nh-pill">Dedicated</div>
+          <h4>Root Server Standard</h4>
+          <p>Volle Kontrolle mit Bare Metal Performance für Web & Datenbanken.</p>
+          <div class="nh-meta"><span>AMD EPYC</span><span>64 GB RAM</span><span>2 x 960 GB NVMe</span><span>Unmetered Traffic</span></div>
+        </a>
+        <a class="nh-card" href="/root-plus">
+          <div class="nh-pill" style="background:#e0f2fe; border-color:#bae6fd; color:#0ea5e9;">High I/O</div>
+          <h4>Root Server Plus</h4>
+          <p>Starke I/O für Container, Virtualisierung und Edge-Workloads.</p>
+          <div class="nh-meta"><span>Intel Xeon</span><span>128 GB RAM</span><span>3.2 TB NVMe</span><span>10 Gbit Uplink</span></div>
+        </a>
+        <a class="nh-card" href="/root-gpu">
+          <div class="nh-pill" style="background:#eef2ff; border-color:#c7d2fe; color:#4338ca;">Compute</div>
+          <h4>GPU Ready</h4>
+          <p>Für KI/ML, Rendering oder Video-Transcoding mit flexiblen GPUs.</p>
+          <div class="nh-meta"><span>NVIDIA GPUs</span><span>Bis 256 GB RAM</span><span>RAID-Optionen</span><span>DDoS-Schutz</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="nh-tab-content" data-tab-content="cloud" style="display:none;">
+      <div class="nh-card-grid">
+        <a class="nh-card" href="/cloud-storage">
+          <div class="nh-pill">Storage</div>
+          <h4>Cloud-Speicher</h4>
+          <p>Objekt-Storage und S3-kompatible Buckets für Backups & Medien.</p>
+          <div class="nh-meta"><span>Versionierung</span><span>Multi-Region</span><span>Lifecycle Policies</span><span>API-first</span></div>
+        </a>
+        <a class="nh-card" href="/cloud-backup">
+          <div class="nh-pill" style="background:#ecfeff; border-color:#a5f3fc; color:#0f172a;">Disaster Recovery</div>
+          <h4>Backup & Snapshots</h4>
+          <p>Automatische Sicherungen, georedundant und verschlüsselt.</p>
+          <div class="nh-meta"><span>Encryption</span><span>30/90-Tage Retention</span><span>Restore-Assistent</span><span>Compliance-ready</span></div>
+        </a>
+        <a class="nh-card" href="/cloud-network">
+          <div class="nh-pill" style="background:#e0f2fe; border-color:#bae6fd; color:#0ea5e9;">Networking</div>
+          <h4>Private Networking</h4>
+          <p>Isolierte VLANs, Floating IPs und Firewall-Policies per API.</p>
+          <div class="nh-meta"><span>vLAN</span><span>Floating IPs</span><span>Firewall Rules</span><span>Monitoring</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="nh-tab-content" data-tab-content="domains" style="display:none;">
+      <div class="nh-card-grid">
+        <a class="nh-card" href="/domains/de">
+          <div class="nh-pill">.de</div>
+          <h4>Domains in Deutschland</h4>
+          <p>Sichere deine .de Domain inkl. DNS-Management und Anycast.</p>
+          <div class="nh-meta"><span>DNSSEC</span><span>Anycast DNS</span><span>SOFORT live</span><span>WHOIS-Privacy</span></div>
+        </a>
+        <a class="nh-card" href="/domains/global">
+          <div class="nh-pill" style="background:#eef2ff; border-color:#c7d2fe; color:#4338ca;">Global</div>
+          <h4>gTLDs & Brands</h4>
+          <p>Von .com bis .io – ideal für SaaS, Communities und Startups.</p>
+          <div class="nh-meta"><span>2FA-Panel</span><span>DNS-Vorlagen</span><span>API-Connect</span><span>Bulk-Tools</span></div>
+        </a>
+        <a class="nh-card" href="/domains/reseller">
+          <div class="nh-pill" style="background:#ecfeff; border-color:#a5f3fc; color:#0f172a;">Reseller</div>
+          <h4>Domain Reseller</h4>
+          <p>White-Label Tarife, Margensteuerung und Sub-Accounts für Agenturen.</p>
+          <div class="nh-meta"><span>Multi-Client</span><span>Automatisierung</span><span>Transfer-Tools</span><span>Support-Assistenz</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nh-container nh-section">
+    <h3>Warum Nexthosting?</h3>
+    <p class="section-lead">Leistung trifft Einfachheit: Wir verbinden moderne Infrastruktur mit intuitiven Tools und echtem 24/7 Support.</p>
+    <div class="nh-card-grid">
+      <div class="nh-feature">
+        <div class="nh-flex"><div class="nh-icon">⚙️</div><strong>SSD & NVMe-Speed</strong></div>
+        <span>Schnelle I/O für Datenbanken, Shops und Container.</span>
+      </div>
+      <div class="nh-feature">
+        <div class="nh-flex"><div class="nh-icon">🛡️</div><strong>DDoS-Schutz</strong></div>
+        <span>Layer-3/4 Mitigation mit Live Monitoring.</span>
+      </div>
+      <div class="nh-feature">
+        <div class="nh-flex"><div class="nh-icon">💾</div><strong>Automatische Backups</strong></div>
+        <span>Versionierte Sicherungen & schnelle Restores.</span>
+      </div>
+      <div class="nh-feature">
+        <div class="nh-flex"><div class="nh-icon">🇩🇪</div><strong>Deutsches Rechenzentrum</strong></div>
+        <span>ISO-zertifiziert, DSGVO-konform, kurze Wege.</span>
+      </div>
+      <div class="nh-feature">
+        <div class="nh-flex"><div class="nh-icon">☎️</div><strong>24/7 Support</strong></div>
+        <span>Chat, Tickets und On-Call für kritische Systeme.</span>
+      </div>
+      <div class="nh-feature">
+        <div class="nh-flex"><div class="nh-icon">⏱️</div><strong>Hohe Uptime</strong></div>
+        <span>99,9 % SLA mit Monitoring & Self-Healing.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="nh-container nh-section">
+    <h3>Vertrauen, das sichtbar ist</h3>
+    <p class="section-lead">Kunden loben unseren Support, die Performance und die Transparenz.</p>
+    <div class="nh-testimonials">
+      <div class="nh-testimonial">
+        <div class="nh-stars">★★★★★</div>
+        <p>„Stabile Latenzen und top Support – wir haben unsere Community-Server komplett zu Nexthosting migriert.“</p>
+        <div class="nh-flex"><div class="nh-avatar">A</div><div><strong>Aylin M.</strong><br><small>Gaming Community</small></div></div>
+      </div>
+      <div class="nh-testimonial">
+        <div class="nh-stars">★★★★★</div>
+        <p>„Das Panel ist super intuitiv, Deployments gehen in Sekunden live. Backup & Snapshot sind Gold wert.“</p>
+        <div class="nh-flex"><div class="nh-avatar">T</div><div><strong>Tom M.</strong><br><small>SaaS-Founder</small></div></div>
+      </div>
+      <div class="nh-testimonial">
+        <div class="nh-stars">★★★★☆</div>
+        <p>„Wir nutzen VPS und Domains im Bundle – DNS-Templates sparen uns viel Zeit bei Rollouts.“</p>
+        <div class="nh-flex"><div class="nh-avatar">S</div><div><strong>Sarah M.</strong><br><small>Webagentur</small></div></div>
+      </div>
+    </div>
+    <div class="nh-stats" style="margin-top:16px;">
+      <div class="nh-stat-card"><strong>1.500+</strong><span>aktive Services</span></div>
+      <div class="nh-stat-card"><strong>3</strong><span>Standorte in DE & EU</span></div>
+      <div class="nh-stat-card"><strong>99,9 %</strong><span>Uptime SLA</span></div>
+    </div>
+  </div>
+
+  <div class="nh-container nh-section">
+    <h3>FAQ</h3>
+    <p class="section-lead">Antworten auf die wichtigsten Fragen zu VPS, Gameservern, Laufzeiten, DDoS und Support.</p>
+    <div class="nh-faq">
+      <div class="nh-faq-item">
+        <div class="nh-faq-question">Wie schnell werden VPS oder Gameserver bereitgestellt?<span>+</span></div>
+        <div class="nh-faq-answer">Bereitstellung erfolgt automatisch in wenigen Minuten nach Bestellung. Du kannst sofort über das Panel oder die API loslegen.</div>
+      </div>
+      <div class="nh-faq-item">
+        <div class="nh-faq-question">Welche DDoS-Protection ist inklusive?<span>+</span></div>
+        <div class="nh-faq-answer">Wir nutzen always-on Mitigation mit Traffic-Analyse und automatischen Filtern. Alle Tarife enthalten den Schutz ohne Aufpreis.</div>
+      </div>
+      <div class="nh-faq-item">
+        <div class="nh-faq-question">Wie lang sind die Vertragslaufzeiten?<span>+</span></div>
+        <div class="nh-faq-answer">Flexibel monatlich kündbar, optional mit Rabatt bei jährlicher Zahlung. Keine versteckten Gebühren.</div>
+      </div>
+      <div class="nh-faq-item">
+        <div class="nh-faq-question">Wo stehen die Serverstandorte?<span>+</span></div>
+        <div class="nh-faq-answer">Primär in Deutschland, mit zusätzlichem Peering in Europa für geringe Latenzen. ISO-zertifizierte Rechenzentren.</div>
+      </div>
+      <div class="nh-faq-item">
+        <div class="nh-faq-question">Gibt es Support für Modding und individuelle Setups?<span>+</span></div>
+        <div class="nh-faq-answer">Ja, unser Team unterstützt bei Mods, Plugins, Cronjobs und spezifischen Anforderungen über Tickets oder Chat.</div>
+      </div>
+      <div class="nh-faq-item">
+        <div class="nh-faq-question">Kann ich später skalieren?<span>+</span></div>
+        <div class="nh-faq-answer">Ressourcen lassen sich flexibel erhöhen. Für Gameserver und VPS gibt es Live-Skalierung und optionale Upgrades ohne Neuinstallation.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nh-container nh-section">
+    <h3>Blog & Wissen</h3>
+    <p class="section-lead">Tipps für Performance, Sicherheit und Community-Management.</p>
+    <div class="nh-blog-grid">
+      <div class="nh-blog-card">
+        <div class="nh-blog-image"></div>
+        <h4>Server-Sicherheit in Minuten</h4>
+        <p>Firewall-Templates, SSH-Keys und Backup-Strategien für deine ersten Deployments.</p>
+        <a class="nh-subtle-link" href="/blog/sicherheit">Mehr erfahren →</a>
+      </div>
+      <div class="nh-blog-card">
+        <div class="nh-blog-image" style="background:linear-gradient(135deg,#cffafe,#a5b4fc);"></div>
+        <h4>Performance-Tuning für VPS</h4>
+        <p>Optimierung von I/O, Caching und Observability, damit Apps flüssig bleiben.</p>
+        <a class="nh-subtle-link" href="/blog/performance">Mehr erfahren →</a>
+      </div>
+      <div class="nh-blog-card">
+        <div class="nh-blog-image" style="background:linear-gradient(135deg,#e0f2fe,#c084fc);"></div>
+        <h4>Modding leicht gemacht</h4>
+        <p>Wie du Gameserver sicher moddest, automatische Updates planst und Rollbacks nutzt.</p>
+        <a class="nh-subtle-link" href="/blog/modding">Mehr erfahren →</a>
+      </div>
+      <div class="nh-blog-card">
+        <div class="nh-blog-image" style="background:linear-gradient(135deg,#fef9c3,#bfdbfe);"></div>
+        <h4>Domains & DNS Best Practices</h4>
+        <p>Anycast-DNS, TTL-Strategien und SSL-Automatisierung für deine Projekte.</p>
+        <a class="nh-subtle-link" href="/blog/dns">Mehr erfahren →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="nh-container nh-section" style="background:linear-gradient(135deg,#eff6ff,#f8fafc);">
+    <h3>Zusammenfassung</h3>
+    <div class="nh-summary">
+      <div class="nh-highlight">Warum Nexthosting? Weil Performance, Verfügbarkeit und Support zusammengehören.</div>
+      <p class="section-lead">Ob VPS, Gameserver, Root Server, Cloud-Speicher oder Domains – du bekommst alles aus einer Hand mit sofortiger Bereitstellung, Panel & API sowie inklusive DDoS-Schutz.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="nh-primary-btn" data-tab-jump="gameserver" href="#">Gameserver entdecken</a>
+        <a class="nh-secondary-link" data-tab-jump="vps" href="#">VPS ansehen →</a>
+        <a class="nh-secondary-link" data-tab-jump="domains" href="#">Domains sichern →</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const root = document.querySelector('.nexthosting-landing');
+      const tabs = root.querySelectorAll('.nh-tab');
+      const contents = root.querySelectorAll('.nh-tab-content');
+
+      function setActiveTab(name) {
+        tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === name));
+        contents.forEach(c => c.style.display = c.dataset.tabContent === name ? 'block' : 'none');
+      }
+
+      tabs.forEach(tab => tab.addEventListener('click', () => setActiveTab(tab.dataset.tab)));
+
+      root.querySelectorAll('[data-tab-jump]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = link.dataset.tabJump;
+          setActiveTab(target);
+          const productSection = document.getElementById('nh-products');
+          if (productSection) productSection.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Carousel controls
+      const carousel = root.querySelector('.nh-carousel-track');
+      const btns = root.querySelectorAll('.nh-carousel-btn');
+      btns.forEach(btn => btn.addEventListener('click', () => {
+        const dir = parseInt(btn.dataset.dir, 10);
+        carousel.scrollBy({ left: dir * 280, behavior: 'smooth' });
+      }));
+
+      // FAQ accordion
+      root.querySelectorAll('.nh-faq-item').forEach(item => {
+        const q = item.querySelector('.nh-faq-question');
+        q.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+    })();
+  </script>
+</div>
