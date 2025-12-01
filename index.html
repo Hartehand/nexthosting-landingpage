@@ -1,2971 +1,672 @@
-
-<div class="nexthosting-landing">
-  <style>
-    .nexthosting-landing {
-      --primary: #2563eb;
-      --primary-light: #e0edff;
-      --primary-strong: #1d4ed8;
-      --secondary: #0ea5e9;
-      --accent: #8b5cf6;
-      --bg: #f3f6fb;
-      --surface: #ffffff;
-      --border: #e2e8f0;
-      --text: #0f172a;
-      --muted: #6b7280;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --shadow-chip: 0 10px 25px rgba(37, 99, 235, 0.18);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-    }
-
-    /* Base Styles */
-    .nexthosting-landing * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nexthosting-landing a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .nexthosting-landing .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .nexthosting-landing .section {
-      padding: 4.5rem 0;
-      position: relative;
-    }
-
-    .nexthosting-landing .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .nexthosting-landing .kicker {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(37, 99, 235, 0.06);
-      color: var(--primary);
-      border: 1px solid rgba(37, 99, 235, 0.18);
-      margin-bottom: 0.75rem;
-    }
-
-    .nexthosting-landing .title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
-    }
-
-    .nexthosting-landing .title span {
-      color: var(--primary);
-    }
-
-    .nexthosting-landing .subtitle {
-      max-width: 640px;
-      margin: 0 auto;
-      font-size: 0.98rem;
-      color: var(--muted);
-    }
-
-    /* Buttons */
-    .nexthosting-landing .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.75rem 1.4rem;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .nexthosting-landing .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
-    }
-
-    .nexthosting-landing .btn-primary:hover {
-      background: var(--primary-strong);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.4);
-    }
-
-    .nexthosting-landing .btn-secondary {
-      background: #ffffff;
-      color: var(--primary);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .nexthosting-landing .btn-secondary:hover {
-      border-color: var(--primary);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
-      transform: translateY(-2px);
-    }
-
-    .nexthosting-landing .btn svg {
-      width: 17px;
-      height: 17px;
-      transition: transform 0.2s ease;
-    }
-
-    .nexthosting-landing .btn:hover svg {
-      transform: translateX(3px);
-    }
-
-    /* Chips */
-    .nexthosting-landing .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 500;
-      background: #ffffff;
-      color: var(--muted);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
-    }
-
-    .nexthosting-landing .chip-strong {
-      background: #0f172a;
-      color: #e5e7eb;
-      border-color: #0f172a;
-      box-shadow: var(--shadow-chip);
-    }
-
-    /* Animations */
-    @keyframes float {
-0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    
-    .nexthosting-landing {
---primary: #6366f1;
-      --primary-light: #a5b4fc;
-      --secondary: #06b6d4;
-      --accent: #8b5cf6;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --info: #0ea5e9;
-      --dark: #1e293b;
-      --light: #f8fafc;
-      --gray: #e2e8f0;
-      --gray-dark: #94a3b8;
-      --purple: #8b5cf6;
-      --pink: #ec4899;
-      --indigo: #6366f1;
-      --blue: #3b82f6;
-      --cyan: #06b6d4;
-      --teal: #14b8a6;
-      --green: #10b981;
-      --lime: #84cc16;
-      --yellow: #facc15;
-      --orange: #f97316;
-      --red: #ef4444;
-font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.5;
-      color: #334155;
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
-
-    /* Base Styles */
-    .nexthosting-landing * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nexthosting-landing .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .nexthosting-landing .section {
-      padding: 5rem 0;
-      position: relative;
-    }
-
-    .nexthosting-landing .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 2.5rem;
-      color: var(--dark);
-      text-align: center;
-    }
-
-    .nexthosting-landing .section-title span {
-      color: var(--primary);
-    }
-
-    .nexthosting-landing .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-  .nexthosting-landing .btn {
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nexthosting-landing .btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    transform: scale(0);
-    transition: transform 0.5s ease;
-  }
-
-  .nexthosting-landing .btn:hover::after {
-    transform: scale(1);
-  }
-  .nexthosting-landing .btn-primary {
-    background: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 100%);
-    color: white;
-  }
-
-  .nexthosting-landing .btn-primary:hover {
-    background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
-  }
-  .nexthosting-landing .btn-secondary {
-    background-color: white;
-    color: var(--indigo);
-    border: 2px solid var(--indigo);
-  }
-
-  .nexthosting-landing .btn-secondary:hover {
-    background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
-    color: white;
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
-  }
-.nexthosting-landing .btn svg {
-    transition: transform 0.3s ease;
-  }
-
-  .nexthosting-landing .btn:hover svg {
-    transform: translateX(3px);
-  }
-.nexthosting-landing .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      background-color: var(--gray);
-      border-radius: 2rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--dark);
-    }
-  .nexthosting-landing .chip-primary {
-    background-color: rgba(255,255,255,0.2);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter: blur(5px);
-  }
-.nexthosting-landing .card {
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .nexthosting-landing .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Hero Section */
-  .nexthosting-landing .hero {
-    position: relative;
-    padding: 6rem 0;
-    background: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 50%, var(--pink) 100%);
-    overflow: hidden;
-    color: white;
-  }
-.nexthosting-landing .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 20%),
-      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 20%);
-  }
-
-  .nexthosting-landing .hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100%;
-    background: url('http://static.photos/technology/1200x630/42') no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: 2rem 0 0 2rem;
-    opacity: 0.2;
-    filter: grayscale(100%) brightness(200%);
-  }
-.nexthosting-landing .hero-content {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-  .nexthosting-landing .hero-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(255,255,255,0.2);
-    color: white;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    animation: pulse 2s infinite;
-  }
-  .nexthosting-landing .hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: white;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    position: relative;
-    display: inline-block;
-  }
-
-  .nexthosting-landing .hero-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(to right, rgba(255,255,255,0.8), transparent);
-    border-radius: 2px;
-  }
-  .nexthosting-landing .hero-subtitle {
-    font-size: 1.25rem;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 2rem;
-    max-width: 90%;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  }
-  .nexthosting-landing .hero-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 3rem;
-    position: relative;
-  }
-
-  .nexthosting-landing .chip {
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-
-  .nexthosting-landing .chip:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  .nexthosting-landing .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .nexthosting-landing .stat-card {
-    background: rgba(255,255,255,0.1);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
-  }
-
-  .nexthosting-landing .stat-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255,255,255,0.2);
-  }
-
-  .nexthosting-landing .stat-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.25rem;
-  }
-
-  .nexthosting-landing .stat-label {
-    font-size: 0.875rem;
-    color: rgba(255,255,255,0.8);
-  }
-.nexthosting-landing .hero-actions {
-      display: flex;
-      gap: 1rem;
-    }
-  .nexthosting-landing .hero-feature-card {
-    background: rgba(255,255,255,0.1);
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: all 0.3s ease;
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .nexthosting-landing .hero-feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  }
-  .nexthosting-landing .feature-card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-    position: relative;
-    display: inline-block;
-  }
-
-  .nexthosting-landing .feature-card-title::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
-  }
-.nexthosting-landing .feature-card-list {
-      list-style: none;
-    }
-  .nexthosting-landing .feature-card-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    font-size: 0.9375rem;
-    color: rgba(255,255,255,0.9);
-    transition: all 0.2s ease;
-  }
-
-  .nexthosting-landing .feature-card-item:hover {
-    transform: translateX(5px);
-  }
-  .nexthosting-landing .feature-card-item::before {
-    content: '✓';
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: rgba(255,255,255,0.2);
-    color: white;
-    border-radius: 50%;
-    margin-right: 0.75rem;
-    font-size: 0.875rem;
-    font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.3);
-    backdrop-filter: blur(5px);
-  }
-/* Gameserver Grid */
-    .nexthosting-landing .gameserver-section {
-      background: linear-gradient(to bottom, #f8fafc, #f0f9ff);
-    }
-.nexthosting-landing .gameserver-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .nexthosting-landing .gameserver-row {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nexthosting-landing .gameserver-card {
-      flex: 1;
-      background: white;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nexthosting-landing .gameserver-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
-    }
-
-    .nexthosting-landing .gameserver-card.featured {
-      flex: 2;
-    }
-
-    .nexthosting-landing .gameserver-card.wide {
-      flex: 3;
-      display: flex;
-      align-items: center;
-    }
-
-    .nexthosting-landing .gameserver-card.wide .gameserver-content {
-      flex: 1;
-      padding: 2rem;
-    }
-
-    .nexthosting-landing .gameserver-card.wide .gameserver-image {
-      width: 40%;
-      height: auto;
-    }
-
-    .nexthosting-landing .card-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--primary);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 2rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      z-index: 2;
-    }
-  .nexthosting-landing .card-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.7), rgba(99, 102, 241, 0.9));
-      z-index: 1;
-    }
-.nexthosting-landing .gameserver-image {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .nexthosting-landing .gameserver-card:hover .gameserver-image {
-      transform: scale(1.05);
-    }
-
-    .nexthosting-landing .gameserver-content {
-      padding: 1.5rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .nexthosting-landing .gameserver-card.featured .gameserver-content {
-      color: white;
-    }
-
-    .nexthosting-landing .gameserver-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-    }
-
-    .nexthosting-landing .gameserver-card.featured .gameserver-title {
-      color: white;
-      font-size: 2rem;
-    }
-
-    .nexthosting-landing .gameserver-description {
-      font-size: 1rem;
-      color: #64748b;
-      margin-bottom: 1.5rem;
-    }
-
-    .nexthosting-landing .gameserver-card.featured .gameserver-description {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1.125rem;
-    }
-
-    .nexthosting-landing .gameserver-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    .nexthosting-landing .gameserver-specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .nexthosting-landing .gameserver-spec {
-      display: flex;
-      align-items: center;
-      font-size: 0.875rem;
-      color: var(--dark);
-      gap: 0.25rem;
-    }
-
-    .nexthosting-landing .gameserver-card.featured .gameserver-spec {
-      color: white;
-    }
-
-    .nexthosting-landing .gameserver-spec .icon {
-      font-size: 1rem;
-    }
-
-    .nexthosting-landing .gameserver-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .nexthosting-landing .gameserver-card.featured .gameserver-price {
-      color: white;
-    }
-
-    .nexthosting-landing .gameserver-price small {
-      font-size: 0.875rem;
-      font-weight: 400;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 1024px) {
-      .nexthosting-landing .gameserver-row {
-        flex-direction: column;
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NextHosting – Moderne Cloud & Gameserver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #5b8def;
+        --primary-dark: #3b6be0;
+        --secondary: #4ade80;
+        --surface: #0b1221;
+        --card: rgba(255, 255, 255, 0.06);
+        --card-strong: rgba(255, 255, 255, 0.12);
+        --text: #e7ecf5;
+        --muted: #9fb2d4;
+        --border: rgba(255, 255, 255, 0.12);
+        --radius: 18px;
+        --shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
       }
-      
-      .nexthosting-landing .gameserver-card,
-      .nexthosting-landing .gameserver-card.featured,
-      .nexthosting-landing .gameserver-card.wide {
-        flex: 1;
+
+      * {
+        box-sizing: border-box;
       }
-      
-      .nexthosting-landing .gameserver-card.wide {
-        flex-direction: column;
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 20%, #12203a, #0a0f1c 40%),
+          radial-gradient(circle at 80% 0%, #132b55, transparent 35%),
+          radial-gradient(circle at 80% 80%, #11213c, #0a0f1c 30%),
+          #0a0f1c;
+        min-height: 100vh;
+        overflow-x: hidden;
       }
-      
-      .nexthosting-landing .gameserver-card.wide .gameserver-image {
+
+      .nexthosting-landing {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        background: url("https://grainy-gradients.vercel.app/noise.svg");
+        opacity: 0.25;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
         width: 100%;
-        height: 200px;
-      }
-    }
-/* Products Section */
-    .nexthosting-landing .products-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .nexthosting-landing .products-tab {
-      padding: 0.75rem 1.5rem;
-      background: var(--gray);
-      border-radius: 0.5rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .nexthosting-landing .products-tab.active {
-      background: var(--primary);
-      color: white;
-    }
-
-    .nexthosting-landing .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .nexthosting-landing .product-card {
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid var(--gray);
-      border-radius: 1rem;
-    }
-
-    .nexthosting-landing .product-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .nexthosting-landing .product-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--dark);
-    }
-
-    .nexthosting-landing .product-description {
-      font-size: 0.875rem;
-      color: #64748b;
-      margin-bottom: 1rem;
-    }
-
-    .nexthosting-landing .product-price {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
-    /* Features Section */
-    .nexthosting-landing .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .nexthosting-landing .feature-card {
-      padding: 2rem;
-      border-radius: 1rem;
-      border: 1px solid var(--gray);
-    }
-  .nexthosting-landing .feature-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--indigo), var(--purple));
-      color: white;
-      border-radius: 0.75rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.25rem;
-    }
-.nexthosting-landing .feature-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-    }
-
-    .nexthosting-landing .feature-description {
-      font-size: 0.9375rem;
-      color: #64748b;
-    }
-
-    /* Testimonials Section */
-    .nexthosting-landing .testimonials-section {
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fe 100%);
-    }
-.nexthosting-landing .testimonials-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .nexthosting-landing .testimonials-stat {
-      text-align: center;
-      padding: 2rem;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .nexthosting-landing .testimonials-stat-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .nexthosting-landing .testimonials-stat-label {
-      font-size: 0.9375rem;
-      color: var(--gray-dark);
-    }
-
-    .nexthosting-landing .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .nexthosting-landing .testimonial-card {
-      padding: 2rem;
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .nexthosting-landing .testimonial-rating {
-      display: flex;
-      gap: 0.25rem;
-      margin-bottom: 1rem;
-      color: #f59e0b;
-    }
-
-    .nexthosting-landing .testimonial-content {
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      color: #64748b;
-    }
-
-    .nexthosting-landing .testimonial-author {
-      display: flex;
-      align-items: center;
-    }
-
-    .nexthosting-landing .testimonial-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      margin-right: 1rem;
-      object-fit: cover;
-    }
-
-    .nexthosting-landing .testimonial-author-name {
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .nexthosting-landing .testimonial-author-title {
-      font-size: 0.875rem;
-      color: var(--gray-dark);
-    }
-    /* FAQ Section */
-    .nexthosting-landing .faq-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .nexthosting-landing .faq-item {
-      margin-bottom: 1.5rem;
-      border-radius: 1rem;
-      overflow: hidden;
-      background: white;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    .nexthosting-landing .faq-item:hover {
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
-    }
-
-    .nexthosting-landing .faq-question {
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1.125rem;
-      color: var(--dark);
-      transition: all 0.3s ease;
-    }
-
-    .nexthosting-landing .faq-question:hover {
-      color: var(--primary);
-    }
-
-    .nexthosting-landing .faq-question::after {
-      content: '+';
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--primary);
-      transition: transform 0.3s ease;
-    }
-
-    .nexthosting-landing .faq-item.active .faq-question::after {
-      content: '-';
-      transform: rotate(180deg);
-    }
-
-    .nexthosting-landing .faq-answer {
-      padding: 0 2rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0;
-      background: linear-gradient(to bottom, rgba(249, 250, 251, 0.5), rgba(241, 245, 249, 0.3));
-    }
-
-    .nexthosting-landing .faq-item.active .faq-answer {
-      padding: 0 2rem 2rem;
-      max-height: 1000px;
-      opacity: 1;
-    }
-
-    .nexthosting-landing .faq-answer p {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #475569;
-    }
-
-    .nexthosting-landing .faq-answer p:first-child {
-      margin-top: 1rem;
-    }
-/* Blog Section */
-    .nexthosting-landing .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .nexthosting-landing .blog-card {
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .nexthosting-landing .blog-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .nexthosting-landing .blog-content {
-      padding: 1.5rem;
-    }
-
-    .nexthosting-landing .blog-date {
-      font-size: 0.75rem;
-      color: var(--gray-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .nexthosting-landing .blog-title {
-      font-size: 1.125rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-    }
-
-    .nexthosting-landing .blog-excerpt {
-      font-size: 0.875rem;
-      color: #64748b;
-      margin-bottom: 1.5rem;
-    }
-
-    .nexthosting-landing .blog-link {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--primary);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .nexthosting-landing .blog-link::after {
-      content: '→';
-      margin-left: 0.5rem;
-      transition: transform 0.2s ease;
-    }
-
-    .nexthosting-landing .blog-link:hover::after {
-      transform: translateX(3px);
-    }
-
-    /* CTA Section */
-    .nexthosting-landing .cta-section {
-      text-align: center;
-      padding: 4rem 0;
-    }
-
-    .nexthosting-landing .cta-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: var(--dark);
-    }
-
-    .nexthosting-landing .cta-text {
-      font-size: 1.125rem;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .nexthosting-landing .cta-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-      .nexthosting-landing .hero-content {
-        grid-template-columns: 1fr;
-      }
-  .nexthosting-landing .hero::after {
-    display: none;
-  }
-
-  .nexthosting-landing .hero-title::after {
-    display: none;
-  }
-  .nexthosting-landing .hero-feature-card {
-    margin-top: 3rem;
-    animation: none;
-  }
-.nexthosting-landing .testimonials-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nexthosting-landing .hero-title {
-        font-size: 2.5rem;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
       }
 
-      .nexthosting-landing .hero-subtitle {
-        max-width: 100%;
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(90, 141, 239, 0.12);
+        border: 1px solid rgba(90, 141, 239, 0.3);
+        color: #bcd5ff;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
       }
 
-      .nexthosting-landing .hero-stats {
-        grid-template-columns: 1fr;
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.85rem 1.5rem;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: linear-gradient(135deg, rgba(91, 141, 239, 0.85), rgba(66, 196, 138, 0.85));
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 15px 35px rgba(91, 141, 239, 0.25);
+        transition: transform 0.2s ease, box-shadow 0.25s ease;
+      }
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+        box-shadow: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 45px rgba(91, 141, 239, 0.35);
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background: rgba(10, 15, 28, 0.8);
+        border-bottom: 1px solid var(--border);
+        z-index: 5;
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+
+      .brand span {
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #5b8def, #4ade80);
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+      }
+
+      .nav-links {
+        display: flex;
         gap: 1rem;
+        font-weight: 600;
+        color: var(--muted);
       }
 
-      .nexthosting-landing .section {
-        padding: 3rem 0;
+      .hero {
+        position: relative;
+        padding: 4.5rem 0 5rem;
       }
 
-      .nexthosting-landing .section-title {
-        font-size: 2rem;
+      .glow {
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        filter: blur(120px);
+        opacity: 0.6;
+        z-index: 0;
+        pointer-events: none;
       }
 
-      .nexthosting-landing .cta-actions {
-        flex-direction: column;
-        gap: 1rem;
+      .glow.one {
+        background: #5b8def;
+        top: -120px;
+        left: -120px;
+      }
+
+      .glow.two {
+        background: #4ade80;
+        bottom: -80px;
+        right: -60px;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
         align-items: center;
       }
-    }
 
-    @media (max-width: 480px) {
-      .nexthosting-landing .products-tabs {
+      h1 {
+        font-size: clamp(2.4rem, 4vw, 3.4rem);
+        margin: 0.75rem 0 1rem;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 580px;
+        line-height: 1.7;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        margin: 1.75rem 0;
         flex-wrap: wrap;
       }
 
-      .nexthosting-landing .testimonials-stats {
-        grid-template-columns: 1fr;
+      .hero-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
       }
 
-      .nexthosting-landing .hero-title {
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+
+      .metric {
+        padding: 1rem;
+        background: var(--card-strong);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.7rem;
+        margin-bottom: 0.15rem;
+      }
+
+      .section {
+        padding: 4.5rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-header h2 {
         font-size: 2rem;
+        letter-spacing: -0.02em;
+        margin: 0.5rem 0;
       }
 
-      .nexthosting-landing .hero-subtitle {
-        font-size: 1rem;
-      }
-    }
-    /* Particles Animation */
-.particles-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-    
-    .particle {
-      position: absolute;
-      background: rgba(59, 130, 246, 0.1);
-      border-radius: 50%;
-      animation: floatParticle 15s infinite linear;
-    }
-    
-    .particle:nth-child(1) {
-      width: 20px;
-      height: 20px;
-      top: 20%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-    
-    .particle:nth-child(2) {
-      width: 30px;
-      height: 30px;
-      top: 60%;
-      left: 80%;
-      animation-delay: 2s;
-    }
-    
-    .particle:nth-child(3) {
-      width: 15px;
-      height: 15px;
-      top: 80%;
-      left: 30%;
-      animation-delay: 4s;
-    }
-    
-    .particle:nth-child(4) {
-      width: 25px;
-      height: 25px;
-      top: 40%;
-      left: 50%;
-      animation-delay: 6s;
-    }
-    
-    .particle:nth-child(5) {
-      width: 10px;
-      height: 10px;
-      top: 10%;
-      left: 70%;
-      animation-delay: 8s;
-    }
-    
-    @keyframes floatParticle {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.3;
-      }
-      50% {
-        opacity: 0.6;
-      }
-      90% {
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-100px) translateX(50px);
-        opacity: 0;
-      }
-    }
-    
-    /* Enhanced card hover effects */
-    .card, .feature-card, .gameserver-card, .product-card, .testimonial-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    }
-    
-    .card:hover, .feature-card:hover, .gameserver-card:hover, 
-    .product-card:hover, .testimonial-card:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15) !important;
-    }
-    
-    /* Improved button hover effects */
-    .btn:hover {
-      transform: translateY(-2px) !important;
-    }
-    
-    /* Smooth transitions for all interactive elements */
-    a, button, .chip {
-      transition: all 0.3s ease !important;
-    }
-  </style>
-
-  <style>
-    .resource-button {
-      padding: 1rem 1.75rem;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .resource-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    }
-
-    .resource-button svg {
-      transition: transform 0.3s ease;
-    }
-
-    .resource-button:hover svg {
-      transform: scale(1.2);
-    }
-  </style>
-</style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const root = document.querySelector(".nexthosting-landing");
-      if (!root) return;
-
-      // FAQ accordion
-      const faqItems = root.querySelectorAll(".faq-item");
-      faqItems.forEach((item) => {
-        const q = item.querySelector(".faq-question");
-        const answer = item.querySelector(".faq-answer");
-        if (!q || !answer) return;
-
-        q.addEventListener("click", () => {
-          const isOpen = item.classList.contains("active");
-          faqItems.forEach((i) => {
-            i.classList.remove("active");
-            const a = i.querySelector(".faq-answer");
-            if (a) a.style.maxHeight = 0;
-          });
-          if (!isOpen) {
-            item.classList.add("active");
-            answer.style.maxHeight = answer.scrollHeight + "px";
-          }
-        });
-      });
-
-      // Open first FAQ by default
-      if (faqItems[0]) {
-        const firstAnswer = faqItems[0].querySelector(".faq-answer");
-        faqItems[0].classList.add("active");
-        if (firstAnswer) firstAnswer.style.maxHeight = firstAnswer.scrollHeight + "px";
+      .section-header p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto;
+        line-height: 1.7;
       }
 
-      // Responsive adjustments
-      function handleResize() {
-        // Add responsive logic here as needed
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.3rem;
       }
-      
-      window.addEventListener("resize", handleResize);
-      handleResize(); // Initial check
-    });
-  </script>
-<!-- Floating Particles Background -->
-  <div class="particles-container">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-  </div>
 
-  <!-- Hero Section -->
-  <section class="hero fade-in">
-<div class="container">
-      <div class="hero-content">
-        <div>
-          <span class="hero-badge">Nexthosting – High Performance Hosting made in Germany</span>
-          <h1 class="hero-title">Geschwindigkeit auf dem nächsten Level</h1>
-          <p class="hero-subtitle">
-            Professionelle Hosting-Lösungen für VPS, Root Server, Gameserver, Domains und Cloud-Speicher. 
-            Sofortige Bereitstellung, enterprise-grade DDoS-Schutz und intuitive Verwaltung über Panel oder API.
-          </p>
-          
-          <div class="hero-chips">
-            <span class="chip chip-primary">99,9% Uptime</span>
-            <span class="chip chip-primary">DDoS inklusive</span>
-            <span class="chip chip-primary">DE-Rechenzentrum</span>
-            <span class="chip chip-primary">API & Panel</span>
-          </div>
-          
-          <div class="hero-stats">
-            <div class="stat-card">
-              <div class="stat-value">200+</div>
-              <div class="stat-label">Projekte</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">&lt;5ms</div>
-              <div class="stat-label">Latenz</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-value">24/7</div>
-              <div class="stat-label">Support</div>
-            </div>
-          </div>
-          <div class="hero-actions">
-            <a href="#products" class="btn btn-primary" style="background: white; color: var(--primary); border: 2px solid white;">
-              Produkte ansehen
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-            <a href="#gameservers" class="btn btn-secondary" style="background: transparent; color: white; border: 2px solid white;">
-              Gameserver entdecken
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 8v4l3 3"></path>
-              </svg>
-            </a>
-          </div>
-</div>
-        
-        <div class="hero-feature-card">
-          <h3 class="feature-card-title">Enterprise-Infrastruktur</h3>
-          <ul class="feature-card-list">
-            <li class="feature-card-item">NVMe Storage für maximale IOPS</li>
-            <li class="feature-card-item">10 Gbit/s Netzwerk-Anbindung</li>
-            <li class="feature-card-item">Multi-Layer DDoS Schutz</li>
-            <li class="feature-card-item">ISO 27001 zertifiziertes Rechenzentrum</li>
-            <li class="feature-card-item">Tägliche Snapshots & Backups</li>
-            <li class="feature-card-item">Einfaches Hochskalieren</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Gameserver Section -->
-  <section id="gameservers" class="section gameserver-section fade-in delay-1">
-<div class="container">
-      <h2 class="section-title">Beliebte <span>Gameserver</span></h2>
-      
-      <div class="gameserver-grid">
-        <div class="gameserver-row">
-          <a href="/games/minecraft" class="gameserver-card featured">
-            <div class="card-badge">Am beliebtesten</div>
-            <div class="card-overlay"></div>
-            <img src="http://static.photos/gaming/1200x630/1" alt="Minecraft Server" class="gameserver-image">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">Minecraft Server</h3>
-              <p class="gameserver-description">Erstelle deine eigene Minecraft-Welt mit Freunden und der Community.</p>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">💾</i> 4 GB RAM</span>
-                  <span class="gameserver-spec"><i class="icon">👥</i> 20 Slots</span>
-                  <span class="gameserver-spec"><i class="icon">🇩🇪</i> DE Standort</span>
-                </div>
-                <div class="gameserver-price">ab 4,99€<small>/mo</small></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        
-        <div class="gameserver-row">
-          <a href="/games/rust" class="gameserver-card">
-            <img src="http://static.photos/gaming/640x360/2" alt="Rust Server" class="gameserver-image">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">Rust Server</h3>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">💾</i> 8 GB RAM</span>
-                  <span class="gameserver-spec"><i class="icon">👥</i> 50 Slots</span>
-                </div>
-                <div class="gameserver-price">ab 9,99€<small>/mo</small></div>
-              </div>
-            </div>
-          </a>
-          
-          <a href="/games/fivem" class="gameserver-card">
-            <img src="http://static.photos/gaming/640x360/3" alt="FiveM Server" class="gameserver-image">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">FiveM Server</h3>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">💾</i> 6 GB RAM</span>
-                  <span class="gameserver-spec"><i class="icon">👥</i> 32 Slots</span>
-                </div>
-                <div class="gameserver-price">ab 7,99€<small>/mo</small></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        
-        <div class="gameserver-row">
-          <a href="/games/ark" class="gameserver-card">
-            <img src="http://static.photos/gaming/640x360/4" alt="ARK Server" class="gameserver-image">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">ARK: Survival Evolved</h3>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">💾</i> 8 GB RAM</span>
-                  <span class="gameserver-spec"><i class="icon">👥</i> 40 Slots</span>
-                </div>
-                <div class="gameserver-price">ab 12,99€<small>/mo</small></div>
-              </div>
-            </div>
-          </a>
-          
-          <a href="/games/garrysmod" class="gameserver-card">
-            <img src="http://static.photos/gaming/640x360/5" alt="Garry's Mod Server" class="gameserver-image">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">Garry's Mod</h3>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">💾</i> 4 GB RAM</span>
-                  <span class="gameserver-spec"><i class="icon">👥</i> 24 Slots</span>
-                </div>
-                <div class="gameserver-price">ab 5,99€<small>/mo</small></div>
-              </div>
-            </div>
-          </a>
-          
-          <a href="/games/scpsl" class="gameserver-card">
-            <img src="http://static.photos/gaming/640x360/6" alt="SCP: Secret Laboratory Server" class="gameserver-image">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">SCP: Secret Laboratory</h3>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">💾</i> 4 GB RAM</span>
-                  <span class="gameserver-spec"><i class="icon">👥</i> 20 Slots</span>
-                </div>
-                <div class="gameserver-price">ab 6,99€<small>/mo</small></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        
-        <div class="gameserver-row">
-          <a href="/games/custom" class="gameserver-card wide">
-            <div class="gameserver-content">
-              <h3 class="gameserver-title">Custom Gameserver</h3>
-              <p class="gameserver-description">Individueller Gameserver für deine Community mit speziellen Anforderungen.</p>
-              <div class="gameserver-meta">
-                <div class="gameserver-specs">
-                  <span class="gameserver-spec"><i class="icon">⚙️</i> Flexibel</span>
-                  <span class="gameserver-spec"><i class="icon">🌍</i> DE/EU/US</span>
-                </div>
-                <div class="gameserver-price">ab 9,99€<small>/mo</small></div>
-              </div>
-            </div>
-            <img src="http://static.photos/gaming/640x360/7" alt="Custom Gameserver" class="gameserver-image">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- Products Section -->
-<section id="products" class="section fade-in delay-2" style="background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);">
-<div class="container">
-    <h2 class="section-title">Unsere <span>Premium-Produkte</span></h2>
-    <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #64748b;">
-      Hochleistungs-Infrastruktur für anspruchsvolle Projekte - skalierbar, sicher und made in Germany
-    </p>
-    
-    <div class="products-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-      <!-- VPS Card -->
-      <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-        <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-          <div style="flex: 0 0 64px; height: 64px; background: #e0f2fe; border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
-            <img src="https://cdn-icons-png.flaticon.com/512/2885/2885407.png" alt="VPS Icon" style="width: 48px; height: 48px;">
-          </div>
-          <div style="flex: 1;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-              <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b;">VPS Hosting</h3>
-              <span style="background: #3b82f6; color: white; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600;">Bestseller</span>
-            </div>
-            <p style="color: #64748b; margin-bottom: 1.5rem;">Virtuelle Server mit NVMe-Speicher, hoher Verfügbarkeit und einfacher Skalierung.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Bis zu 32 vCores
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> 10 Gbit/s Netzwerk
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> DDoS Schutz inkl.
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> NVMe Storage
-              </span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div style="font-size: 1.25rem; font-weight: 700; color: #3b82f6;">ab 3,99€<small style="font-size: 0.875rem; opacity: 0.8;">/mo</small></div>
-              <a href="/vps" style="display: inline-flex; align-items: center; color: #3b82f6; font-weight: 600; text-decoration: none;">
-                Jetzt entdecken
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Root Server Card -->
-      <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-        <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-          <div style="flex: 0 0 64px; height: 64px; background: #e0f2fe; border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
-            <img src="https://cdn-icons-png.flaticon.com/512/2983/2983412.png" alt="Root Server Icon" style="width: 48px; height: 48px;">
-          </div>
-          <div style="flex: 1;">
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Root Server</h3>
-            <p style="color: #64748b; margin-bottom: 1.5rem;">Dedizierte Hardware mit vollem Root-Zugriff für maximale Performance.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Intel Xeon Prozessoren
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Bis zu 128 GB RAM
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> NVMe RAID-10
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Dedizierte Ressourcen
-              </span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div style="font-size: 1.25rem; font-weight: 700; color: #3b82f6;">ab 29,99€<small style="font-size: 0.875rem; opacity: 0.8;">/mo</small></div>
-              <a href="/root-server" style="display: inline-flex; align-items: center; color: #3b82f6; font-weight: 600; text-decoration: none;">
-                Jetzt entdecken
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Domains Card -->
-      <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-        <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-          <div style="flex: 0 0 64px; height: 64px; background: #e0f2fe; border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Domains Icon" style="width: 48px; height: 48px;">
-          </div>
-          <div style="flex: 1;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-              <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b;">Domains</h3>
-              <span style="background: #06b6d4; color: white; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600;">Neu</span>
-            </div>
-            <p style="color: #64748b; margin-bottom: 1.5rem;">Sichere deine perfekte Domain mit umfangreichem DNS-Management.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> 300+ Domain-Endungen
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> WHOIS Schutz inkl.
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Einfache Verwaltung
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> DNS Management
-              </span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div style="font-size: 1.25rem; font-weight: 700; color: #3b82f6;">ab 0,99€<small style="font-size: 0.875rem; opacity: 0.8;">/mo</small></div>
-              <a href="/domains" style="display: inline-flex; align-items: center; color: #3b82f6; font-weight: 600; text-decoration: none;">
-                Jetzt entdecken
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Cloud Storage Card -->
-      <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-        <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-          <div style="flex: 0 0 64px; height: 64px; background: #e0f2fe; border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
-            <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png" alt="Cloud Storage Icon" style="width: 48px; height: 48px;">
-          </div>
-          <div style="flex: 1;">
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">Cloud Speicher</h3>
-            <p style="color: #64748b; margin-bottom: 1.5rem;">Skalierbarer Objektspeicher mit hoher Verfügbarkeit und redundanter Speicherung.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem;">
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> 99,99% Verfügbarkeit
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Automatische Skalierung
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> 3-fache Redundanz
-              </span>
-              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
-                <span style="color: #3b82f6;">✓</span> Weltweiter Zugriff
-              </span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div style="font-size: 1.25rem; font-weight: 700; color: #3b82f6;">ab 0,01€<small style="font-size: 0.875rem; opacity: 0.8;">/GB</small></div>
-              <a href="/cloud-storage" style="display: inline-flex; align-items: center; color: #3b82f6; font-weight: 600; text-decoration: none;">
-                Jetzt entdecken
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- Features Section -->
-  <section class="section fade-in delay-1" style="background-color: #f8fafc;">
-<div class="container">
-      <h2 class="section-title">Warum <span>Nexthosting?</span></h2>
-      
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3 class="feature-title">SSD Performance</h3>
-          <p class="feature-description">
-            Alle Server laufen auf enterprise-grade NVMe SSDs für maximale Geschwindigkeit und IOPS.
-          </p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h3 class="feature-title">DDoS Schutz</h3>
-          <p class="feature-description">
-            Professioneller Multi-Layer DDoS Schutz inklusive für alle Server und Dienste.
-          </p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3 class="feature-title">Automatische Backups</h3>
-          <p class="feature-description">
-            Tägliche Snapshots und Backups sorgen für Sicherheit und schnelle Wiederherstellung.
-          </p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🇩🇪</div>
-          <h3 class="feature-title">Deutsches Rechenzentrum</h3>
-          <p class="feature-description">
-            ISO 27001 zertifiziertes Rechenzentrum in Deutschland mit strengen Sicherheitsstandards.
-          </p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">🕒</div>
-          <h3 class="feature-title">24/7 Support</h3>
-          <p class="feature-description">
-            Unser Support-Team steht rund um die Uhr per Ticket, Chat und Telefon zur Verfügung.
-          </p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">📈</div>
-          <h3 class="feature-title">99,9% Uptime</h3>
-          <p class="feature-description">
-            Hochverfügbare Infrastruktur mit redundanten Netzwerken und garantierter Uptime.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Testimonials Section -->
-  <section class="section testimonials-section fade-in delay-2">
-<div class="container">
-      <h2 class="section-title">Das sagen <span>unsere Kunden</span></h2>
-      
-      <div class="testimonials-stats">
-        <div class="testimonials-stat">
-          <div class="testimonials-stat-value">5.000+</div>
-          <div class="testimonials-stat-label">Zufriedene Kunden</div>
-        </div>
-        
-        <div class="testimonials-stat">
-          <div class="testimonials-stat-value">99,97%</div>
-          <div class="testimonials-stat-label">Uptime 2023</div>
-        </div>
-        
-        <div class="testimonials-stat">
-          <div class="testimonials-stat-value">2</div>
-          <div class="testimonials-stat-label">Standorte</div>
-        </div>
-        
-        <div class="testimonials-stat">
-          <div class="testimonials-stat-value">15min</div>
-          <div class="testimonials-stat-label">Durchschn. Antwortzeit</div>
-        </div>
-      </div>
-      
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-rating">
-            ★★★★★
-          </div>
-          <p class="testimonial-content">
-            "Seit wir auf Nexthosting gewechselt sind, haben wir keine Performance-Probleme mehr. Die Server laufen stabil und der Support ist schnell und kompetent."
-          </p>
-          <div class="testimonial-author">
-            <img src="http://static.photos/people/200x200/1" alt="Markus Schröder" class="testimonial-avatar">
-            <div>
-              <div class="testimonial-author-name">Markus Schröder</div>
-              <div class="testimonial-author-title">CTO, TechStartup GmbH</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="testimonial-rating">
-            ★★★★★
-          </div>
-          <p class="testimonial-content">
-            "Unsere Minecraft-Community läuft seit Jahren problemlos auf den Nexthosting-Servern. Die automatischen Backups haben uns schon mehrfach gerettet!"
-          </p>
-          <div class="testimonial-author">
-            <img src="http://static.photos/people/200x200/2" alt="Lisa Bauer" class="testimonial-avatar">
-            <div>
-              <div class="testimonial-author-name">Lisa Bauer</div>
-              <div class="testimonial-author-title">Admin, BlockCraft Network</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="testimonial-rating">
-            ★★★★☆
-          </div>
-          <p class="testimonial-content">
-            "Die Kombination aus gutem Preis-Leistungs-Verhältnis und deutschem Rechenzentrum hat uns überzeugt. Kleine Wünsche werden schnell umgesetzt."
-          </p>
-          <div class="testimonial-author">
-            <img src="http://static.photos/people/200x200/3" alt="Thomas Weber" class="testimonial-avatar">
-            <div>
-              <div class="testimonial-author-name">Thomas Weber</div>
-              <div class="testimonial-author-title">Geschäftsführer, WebAgentur</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- FAQ Section -->
-  <section class="section fade-in delay-1">
-<div class="container">
-      <h2 class="section-title">Häufige <span>Fragen</span></h2>
-      
-      <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">Welche Zahlungsmethoden werden akzeptiert?</div>
-          <div class="faq-answer">
-            Wir akzeptieren alle gängigen Zahlungsmethoden: Kreditkarte (Visa, Mastercard), PayPal, Sofortüberweisung, SEPA-Lastschrift und Bitcoin. Die Abrechnung erfolgt monatlich oder jährlich mit attraktiven Rabatten für Jahreszahlungen.
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">Kann ich meinen Gameserver selbst verwalten?</div>
-          <div class="faq-answer">
-            Ja, alle unsere Gameserver werden mit vollständigem Zugriff geliefert. Du erhältst SSH-/FTP-Zugang und kannst alle Einstellungen selbst vornehmen. Alternativ bieten wir auch ein benutzerfreundliches Webinterface für einfache Verwaltung.
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">Wo befindet sich euer Rechenzentrum?</div>
-          <div class="faq-answer">
-            Unser Haupt-Rechenzentrum befindet sich in Frankfurt am Main, Deutschland. Es ist ISO 27001 zertifiziert und bietet höchste Sicherheitsstandards. Ein zweites Standort in Amsterdam ist in Planung.
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">Gibt es eine Mindestvertragslaufzeit?</div>
-          <div class="faq-answer">
-            Nein, alle unsere Server können monatlich gekündigt werden. Es gibt keine Mindestvertragslaufzeit oder automatische Vertragsverlängerung. Du zahlst nur für die Zeit, die du auch wirklich nutzt.
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">Wie schnell wird mein Server bereitgestellt?</div>
-          <div class="faq-answer">
-            Die meisten Server (VPS, Gameserver) werden innerhalb von 5-10 Minuten nach Zahlungseingang automatisch bereitgestellt. Root Server können bis zu 24 Stunden benötigen, da hier physische Hardware konfiguriert wird.
-          </div>
-        </div>
-        
-        <div class="faq-item">
-          <div class="faq-question">Kann ich meinen Server später upgraden?</div>
-          <div class="faq-answer">
-            Ja, alle unsere Server können jederzeit ohne Downtime hochskaliert werden. Mehr CPU, RAM oder Speicherplatz kann mit wenigen Klicks in unserem Kundenpanel hinzugebucht werden. Downgrades sind monatlich zum Abrechnungszeitpunkt möglich.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Blog Section -->
-  <section class="section fade-in delay-2" style="background-color: #f8fafc;">
-<div class="container">
-      <h2 class="section-title">Aus unserem <span>Blog</span></h2>
-      
-      <div class="blog-grid">
-        <a href="/blog/server-sicherheit" class="blog-card">
-          <img src="http://static.photos/technology/640x360/10" alt="Server Sicherheit" class="blog-image">
-          <div class="blog-content">
-            <div class="blog-date">15. Mai 2023</div>
-            <h3 class="blog-title">10 Tipps für mehr Server-Sicherheit</h3>
-            <p class="blog-excerpt">
-              Erfahren Sie, wie Sie Ihren Server vor Angriffen schützen und sensible Daten sicher aufbewahren.
-            </p>
-            <span class="blog-link">Mehr erfahren</span>
-          </div>
-        </a>
-        
-        <a href="/blog/minecraft-performance" class="blog-card">
-          <img src="http://static.photos/gaming/640x360/11" alt="Minecraft Performance" class="blog-image">
-          <div class="blog-content">
-            <div class="blog-date">2. April 2023</div>
-            <h3 class="blog-title">Minecraft Server optimieren</h3>
-            <p class="blog-excerpt">
-              Die besten JVM-Flags und Einstellungen für maximale Performance Ihres Minecraft Servers.
-            </p>
-            <span class="blog-link">Mehr erfahren</span>
-          </div>
-        </a>
-        
-        <a href="/blog/ddos-schutz" class="blog-card">
-          <img src="http://static.photos/technology/640x360/12" alt="DDoS Schutz" class="blog-image">
-          <div class="blog-content">
-            <div class="blog-date">18. März 2023</div>
-            <h3 class="blog-title">Wie funktioniert DDoS-Schutz?</h3>
-            <p class="blog-excerpt">
-              Ein Blick hinter die Kulissen unserer Multi-Layer DDoS-Schutzinfrastruktur.
-            </p>
-            <span class="blog-link">Mehr erfahren</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- Tech Comparison Section -->
-  <section class="section fade-in delay-1" style="background: linear-gradient(to bottom, #f8fafc, #ffffff);">
-    <div class="container">
-      <h2 class="section-title">Technologie-<span>Vergleich</span></h2>
-      <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #64748b;">
-        Finde die perfekte Lösung für deine Anforderungen
-      </p>
-      
-      <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 3rem;">
-          <thead>
-            <tr style="background: linear-gradient(135deg, var(--indigo), var(--purple)); color: white;">
-              <th style="padding: 1.5rem; text-align: left; border-radius: 0.5rem 0 0 0;">Eigenschaft</th>
-              <th style="padding: 1.5rem; text-align: center;">VPS</th>
-              <th style="padding: 1.5rem; text-align: center;">Root Server</th>
-              <th style="padding: 1.5rem; text-align: center;">Gameserver</th>
-              <th style="padding: 1.5rem; text-align: center; border-radius: 0 0.5rem 0 0;">Cloud</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom: 1px solid var(--gray);">
-              <td style="padding: 1.5rem; font-weight: 600;">Einsatzgebiet</td>
-              <td style="padding: 1.5rem; text-align: center;">Websites, Apps</td>
-              <td style="padding: 1.5rem; text-align: center;">Hochlast-Apps</td>
-              <td style="padding: 1.5rem; text-align: center;">Gaming</td>
-              <td style="padding: 1.5rem; text-align: center;">Speicher, Backup</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--gray);">
-              <td style="padding: 1.5rem; font-weight: 600;">CPU/RAM</td>
-              <td style="padding: 1.5rem; text-align: center;">1-32 vCores<br>2-128GB</td>
-              <td style="padding: 1.5rem; text-align: center;">4-32 Cores<br>16-256GB</td>
-              <td style="padding: 1.5rem; text-align: center;">2-16 Cores<br>4-64GB</td>
-              <td style="padding: 1.5rem; text-align: center;">Skalierbar</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--gray);">
-              <td style="padding: 1.5rem; font-weight: 600;">Speicher</td>
-              <td style="padding: 1.5rem; text-align: center;">20GB-2TB NVMe</td>
-              <td style="padding: 1.5rem; text-align: center;">500GB-8TB SSD</td>
-              <td style="padding: 1.5rem; text-align: center;">50GB-2TB NVMe</td>
-              <td style="padding: 1.5rem; text-align: center;">1TB-100TB+</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--gray);">
-              <td style="padding: 1.5rem; font-weight: 600;">DDoS-Schutz</td>
-              <td style="padding: 1.5rem; text-align: center;">✔️ 10Gbit</td>
-              <td style="padding: 1.5rem; text-align: center;">✔️ 20Gbit</td>
-              <td style="padding: 1.5rem; text-align: center;">✔️ 100Gbit</td>
-              <td style="padding: 1.5rem; text-align: center;">✔️ 10Gbit</td>
-            </tr>
-            <tr>
-              <td style="padding: 1.5rem; font-weight: 600;">Typische Kunden</td>
-              <td style="padding: 1.5rem; text-align: center;">Startups, Devs</td>
-              <td style="padding: 1.5rem; text-align: center;">Enterprise</td>
-              <td style="padding: 1.5rem; text-align: center;">Gaming-Communities</td>
-              <td style="padding: 1.5rem; text-align: center;">Unternehmen</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <div style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--primary);">Welche Lösung passt zu mir?</h3>
-        <p style="color: #64748b; margin-bottom: 1.5rem;">
-          <strong>VPS:</strong> Ideal für Websites, kleine Apps und Entwickler. Flexibel skalierbar, gute Performance für den Preis.<br>
-          <strong>Root Server:</strong> Für anspruchsvolle Projekte mit dedizierten Ressourcen. Maximale Kontrolle & Performance.<br>
-          <strong>Gameserver:</strong> Für Gaming-Communities mit optimierter Hardware und speziellem DDoS-Schutz.<br>
-          <strong>Cloud:</strong> Für skalierbaren Speicher und Backup-Lösungen mit hoher Verfügbarkeit.
-        </p>
-        <a href="#contact" style="display: inline-flex; align-items: center; color: var(--primary); font-weight: 600; text-decoration: none;">
-          Noch unsicher? Beratung anfordern
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- Panel & API Section -->
-  <section class="section fade-in delay-2" style="background: linear-gradient(135deg, #ffffff, #f8fafc);">
-    <div class="container">
-      <h2 class="section-title">Modernes <span>Panel & API</span></h2>
-      <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #64748b;">
-        Vollständige Kontrolle über deine Infrastruktur - einfach und intuitiv
-      </p>
-
-      <div class="panel-container">
-        <div class="panel-window">
-          <div class="panel-header">
-            <div class="panel-tabs">
-              <button class="panel-tab active" data-tab="dashboard">Dashboard</button>
-             
-            </div>
-            <div class="panel-actions">
-              <button class="panel-action notification"><i class="icon">🔔</i></button>
-              <button class="panel-action"><i class="icon">👤</i></button>
-            </div>
-</div>
-
-          <div class="panel-content">
-            <!-- Dashboard Tab -->
-            <div class="panel-tab-content active" id="dashboard-tab">
-              <div class="panel-stats">
-                <div class="panel-stat">
-                  <div class="stat-label">CPU Usage</div>
-                  <div class="stat-value">24%</div>
-                  <div class="stat-bar">
-                    <div class="stat-progress" style="width: 24%; background: var(--primary);"></div>
-                  </div>
-                </div>
-                <div class="panel-stat">
-                  <div class="stat-label">Memory</div>
-                  <div class="stat-value">3.2/8GB</div>
-                  <div class="stat-bar">
-                    <div class="stat-progress" style="width: 40%; background: var(--secondary);"></div>
-                  </div>
-                </div>
-                <div class="panel-stat">
-                  <div class="stat-label">Storage</div>
-                  <div class="stat-value">120/500GB</div>
-                  <div class="stat-bar">
-                    <div class="stat-progress" style="width: 24%; background: var(--accent);"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel-servers">
-                <div class="panel-server active">
-                  <div class="server-status" style="background: #10b981;"></div>
-                  <div class="server-info">
-                    <div class="server-name">vps-prod-01</div>
-                    <div class="server-specs">4 vCPU • 8GB RAM • 500GB NVMe</div>
-                  </div>
-                  <div class="server-actions">
-                    <button class="server-action"><i class="icon">⚙️</i></button>
-                  </div>
-                </div>
-                <div class="panel-server">
-                  <div class="server-status" style="background: #f59e0b;"></div>
-                  <div class="server-info">
-                    <div class="server-name">mc-server-01</div>
-                    <div class="server-specs">6 vCPU • 12GB RAM • 250GB NVMe</div>
-                  </div>
-                  <div class="server-actions">
-                    <button class="server-action"><i class="icon">⚙️</i></button>
-                  </div>
-                </div>
-                <div class="panel-server">
-                  <div class="server-status" style="background: #10b981;"></div>
-                  <div class="server-info">
-                    <div class="server-name">db-cluster-01</div>
-                    <div class="server-specs">8 vCPU • 16GB RAM • 1TB NVMe</div>
-                  </div>
-                  <div class="server-actions">
-                    <button class="server-action"><i class="icon">⚙️</i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Servers Tab -->
-            <div class="panel-tab-content" id="servers-tab">
-              <div class="panel-table">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Status</th>
-                      <th>Resources</th>
-                      <th>IP Address</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>vps-prod-01</td>
-                      <td><span class="status-badge active">Active</span></td>
-                      <td>4 vCPU, 8GB RAM</td>
-                      <td>192.168.1.45</td>
-                      <td><button class="table-action">Manage</button></td>
-                    </tr>
-                    <tr>
-                      <td>mc-server-01</td>
-                      <td><span class="status-badge warning">Restarting</span></td>
-                      <td>6 vCPU, 12GB RAM</td>
-                      <td>192.168.1.78</td>
-                      <td><button class="table-action">Manage</button></td>
-                    </tr>
-                    <tr>
-                      <td>db-cluster-01</td>
-                      <td><span class="status-badge active">Active</span></td>
-                      <td>8 vCPU, 16GB RAM</td>
-                      <td>192.168.1.92</td>
-                      <td><button class="table-action">Manage</button></td>
-                    </tr>
-                    <tr>
-                      <td>backup-01</td>
-                      <td><span class="status-badge inactive">Offline</span></td>
-                      <td>2 vCPU, 4GB RAM</td>
-                      <td>192.168.1.34</td>
-                      <td><button class="table-action">Manage</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <!-- API Tab -->
-            <div class="panel-tab-content" id="api-tab">
-              <div class="api-demo">
-                <div class="api-tabs">
-                  <button class="api-tab active" data-api="curl">cURL</button>
-                  <button class="api-tab" data-api="python">Python</button>
-                  <button class="api-tab" data-api="node">Node.js</button>
-                </div>
-                <div class="api-content">
-                  <div class="api-code active" id="curl-code">
-                    <pre>curl -X GET \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  https://api.nexthosting.com/v1/servers</pre>
-                  </div>
-                  <div class="api-code" id="python-code">
-                    <pre>import requests
-
-headers = {
-  'Authorization': 'Bearer YOUR_API_KEY'
-}
-
-response = requests.get(
-  'https://api.nexthosting.com/v1/servers',
-  headers=headers
-)
-
-print(response.json())</pre>
-                  </div>
-                  <div class="api-code" id="node-code">
-                    <pre>const axios = require('axios');
-
-axios.get('https://api.nexthosting.com/v1/servers', {
-  headers: {
-    'Authorization': 'Bearer YOUR_API_KEY'
-  }
-})
-.then(response => console.log(response.data))
-.catch(error => console.error(error));</pre>
-                  </div>
-                </div>
-                <button class="api-try">Try it out</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel-features">
-          <div class="panel-feature">
-            <div class="feature-icon">👨‍💻</div>
-            <h3>Intuitive Verwaltung</h3>
-            <p>Alle Funktionen übersichtlich in einem modernen Interface</p>
-          </div>
-          <div class="panel-feature">
-            <div class="feature-icon">🔌</div>
-            <h3>API-first Ansatz</h3>
-            <p>Vollständige API für Automatisierung und Integrationen</p>
-          </div>
-          <div class="panel-feature">
-            <div class="feature-icon">⚡</div>
-            <h3>1-Klick-Operationen</h3>
-            <p>Schnelle Systemwiederherstellung mit wenigen Klicks</p>
-          </div>
-          <div class="panel-feature">
-            <div class="feature-icon">🔒</div>
-            <h3>Sicherheit</h3>
-            <p>Mehrfaktor-Authentifizierung und detaillierte Berechtigungen</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <style>
-    /* Panel Styles */
-    .panel-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .panel-window {
-      background: white;
-      border-radius: 1rem;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-      overflow: hidden;
-      height: 500px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: #f1f5f9;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .panel-tabs {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .panel-tab {
-      padding: 0.75rem 1.25rem;
-      background: transparent;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      color: #64748b;
-    }
-
-    .panel-tab:hover {
-      color: var(--primary);
-      background: rgba(59, 130, 246, 0.1);
-    }
-
-    .panel-tab.active {
-      color: var(--primary);
-      background: rgba(59, 130, 246, 0.1);
-    }
-
-    .panel-tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      height: 3px;
-      background: var(--primary);
-      border-radius: 3px 3px 0 0;
-      animation: tabUnderline 0.3s ease-out;
-    }
-
-    @keyframes tabUnderline {
-      from { width: 0; opacity: 0; }
-      to { width: 60%; opacity: 1; }
-    }
-.panel-actions {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .panel-action {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .panel-action:hover {
-      background: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
-    }
-
-    .panel-action .icon {
-      transition: transform 0.3s ease;
-    }
-
-    .panel-action:hover .icon {
-      transform: scale(1.1);
-    }
-
-    .panel-action::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform 0.6s ease;
-    }
-
-    .panel-action:hover::after {
-      transform: translate(-50%, -50%) scale(20);
-      opacity: 0;
-    }
-
-    .panel-action.notification::after {
-      content: '';
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 8px;
-      height: 8px;
-      background: var(--secondary);
-      border-radius: 50%;
-      border: 2px solid white;
-    }
-    .panel-content {
-      flex: 1;
-      padding: 1.5rem;
-      overflow-y: auto;
-      background: linear-gradient(to bottom, #ffffff, #f8fafc);
-    }
-
-    .panel-content::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .panel-content::-webkit-scrollbar-track {
-      background: rgba(0,0,0,0.05);
-      border-radius: 3px;
-    }
-
-    .panel-content::-webkit-scrollbar-thumb {
-      background: rgba(59, 130, 246, 0.3);
-      border-radius: 3px;
-    }
-
-    .panel-content::-webkit-scrollbar-thumb:hover {
-      background: var(--primary);
-    }
-.panel-tab-content {
-      display: none;
-    }
-
-    .panel-tab-content.active {
-      display: block;
-    }
-
-    .panel-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .panel-stat {
-      background: white;
-      padding: 1.25rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .panel-stat:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
-    }
-.stat-label {
-      font-size: 0.75rem;
-      color: #64748b;
-      margin-bottom: 0.25rem;
-    }
-
-    .stat-value {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-bar {
-      height: 4px;
-      background: #e2e8f0;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .stat-progress {
-      height: 100%;
-    }
-
-    .panel-servers {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .panel-server {
-      display: flex;
-      align-items: center;
-      padding: 1.25rem;
-      background: white;
-      border-radius: 0.75rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      margin-bottom: 0.75rem;
-      border-left: 4px solid transparent;
-    }
-
-    .panel-server:hover {
-      transform: translateX(5px);
-      box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
-    }
-
-    .panel-server.active {
-      border-left: 4px solid var(--primary);
-      background: rgba(59, 130, 246, 0.05);
-    }
-
-    .panel-server:last-child {
-      margin-bottom: 0;
-    }
-    .server-status {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      margin-right: 1.25rem;
-      position: relative;
-    }
-
-    .server-status::after {
-      content: '';
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      right: -3px;
-      bottom: -3px;
-      border-radius: 50%;
-      background: inherit;
-      opacity: 0.3;
-    }
-.server-info {
-      flex: 1;
-    }
-
-    .server-name {
-      font-weight: 600;
-    }
-
-    .server-specs {
-      font-size: 0.75rem;
-      color: #64748b;
-    }
-
-    .server-actions {
-      margin-left: 1rem;
-    }
-    .server-action {
-      width: 32px;
-      height: 32px;
-      background: white;
-      border: 1px solid var(--gray);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .server-action:hover {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-      transform: rotate(90deg);
-    }
-/* API Demo Styles */
-    .api-demo {
-      border: 1px solid #e2e8f0;
-      border-radius: 0.5rem;
-      overflow: hidden;
-    }
-    .api-tabs {
-      display: flex;
-      background: white;
-      border-bottom: 1px solid #e2e8f0;
-      position: relative;
-    }
-
-    .api-tab {
-      padding: 0.75rem 1.5rem;
-      background: transparent;
-      border: none;
-      font-size: 0.875rem;
-      cursor: pointer;
-      position: relative;
-      color: #64748b;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .api-tab:hover {
-      color: var(--primary);
-    }
-
-    .api-tab.active {
-      color: var(--primary);
-      background: rgba(59, 130, 246, 0.05);
-    }
-
-    .api-tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-      animation: tabSlideIn 0.3s ease-out;
-    }
-
-    @keyframes tabSlideIn {
-      from { width: 0; left: 50%; }
-      to { width: 100%; left: 0; }
-    }
-.api-code {
-      padding: 1rem;
-      background: #1e293b;
-      color: white;
-      font-family: monospace;
-      font-size: 0.875rem;
-      display: none;
-      overflow-x: auto;
-    }
-
-    .api-code.active {
-      display: block;
-    }
-    .api-try {
-      width: 100%;
-      padding: 0.9rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 0 0 0.5rem 0.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .api-try:hover {
-      background: #2563eb;
-      letter-spacing: 0.1em;
-    }
-
-    .api-try::after {
-      content: '→';
-      position: absolute;
-      right: -20px;
-      transition: all 0.3s ease;
-    }
-
-    .api-try:hover::after {
-      right: 20px;
-    }
-/* Panel Features */
-    .panel-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .panel-feature {
-      background: white;
-      padding: 1.75rem;
-      border-radius: 1rem;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .panel-feature:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      border-radius: 0.75rem;
-      margin-bottom: 1.25rem;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .panel-feature:hover .feature-icon {
-      transform: rotate(15deg) scale(1.1);
-    }
-
-    .panel-feature h3 {
-      font-size: 1.125rem;
-      margin-bottom: 0.75rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .panel-feature h3::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.3s ease;
-    }
-
-    .panel-feature:hover h3::after {
-      width: 50px;
-    }
-
-    .panel-feature p {
-      font-size: 0.875rem;
-      color: #64748b;
-      transition: all 0.3s ease;
-    }
-
-    .panel-feature:hover p {
-      color: #475569;
-    }
-/* Responsive */
-    @media (max-width: 1024px) {
-      .panel-container {
-        grid-template-columns: 1fr;
+      .card {
+        padding: 1.4rem;
+        border-radius: 16px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        transition: transform 0.2s ease, border-color 0.2s ease;
       }
-      
-      .panel-features {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
 
-    @media (max-width: 768px) {
-      .panel-stats {
-        grid-template-columns: 1fr;
+      .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(90, 141, 239, 0.5);
       }
-      
-      .panel-features {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 
-  <script>
-    // Panel Tab Switching
-    document.querySelectorAll('.panel-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.panel-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.panel-tab-content').forEach(c => c.classList.remove('active'));
-        
-        tab.classList.add('active');
-        document.getElementById(`${tab.dataset.tab}-tab`).classList.add('active');
-      });
-    });
+      .card .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(90, 141, 239, 0.18);
+        display: grid;
+        place-items: center;
+        color: #dbe7ff;
+        margin-bottom: 1rem;
+      }
 
-    // API Tab Switching
-    document.querySelectorAll('.api-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.api-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.api-code').forEach(c => c.classList.remove('active'));
-        
-        tab.classList.add('active');
-        document.getElementById(`${tab.dataset.api}-code`).classList.add('active');
-      });
-    });
+      .card h3 {
+        margin: 0 0 0.4rem;
+      }
 
-    // Try it out button
-    document.querySelector('.api-try')?.addEventListener('click', () => {
-      alert('API request sent! Check your browser console for the response.');
-      console.log('Mock API Response:', {
-        servers: [
-          { id: 1, name: 'vps-prod-01', status: 'active' },
-          { id: 2, name: 'mc-server-01', status: 'restarting' },
-          { id: 3, name: 'db-cluster-01', status: 'active' }
-        ]
-      });
-    });
-  </script>
-  <!-- Enhanced Comparison Section -->
-  <section class="section fade-in delay-1" style="background: linear-gradient(135deg, #f8fafc, #f0f9ff);">
-    <div class="container">
-      <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
-        <span class="kicker" style="margin-bottom: 1rem;">Transparenz</span>
-        <h2 class="section-title" style="font-size: 2.5rem;">Warum <span style="color: var(--primary);">Nexthosting</span> die bessere Wahl ist</h2>
-        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto; font-size: 1.125rem; color: #64748b;">
-          Wir vergleichen uns direkt mit der Konkurrenz - sehen Sie selbst die Unterschiede
-        </p>
-      </div>
-      
-      <div class="comparison-container" style="max-width: 1200px; margin: 0 auto;">
-        <div class="comparison-header" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 1.5rem; padding: 0 1rem;">
-          <div style="font-weight: 600; color: var(--dark);">Feature</div>
-          <div style="font-weight: 600; color: var(--dark); text-align: center;">Andere Anbieter</div>
-          <div style="font-weight: 600; color: var(--primary); text-align: center;">Nexthosting</div>
-        </div>
-        
-        <div class="comparison-grid" style="display: grid; gap: 1.5rem;">
-          <!-- Performance Row -->
-          <div class="comparison-row" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <div class="comparison-category" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-              <div style="width: 40px; height: 40px; background: #e0f2fe; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0ea5e9;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                </svg>
-              </div>
-              <h3 style="font-size: 1.25rem; margin: 0;">Performance & Geschwindigkeit</h3>
-            </div>
-            
-            <div class="comparison-items" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-              <div style="font-weight: 500; color: #64748b;">NVMe Storage</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Teilweise</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">Standard</span></div>
-              
-              <div style="font-weight: 500; color: #64748b;">10 Gbit/s Netzwerk</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Aufpreis</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">Inklusive</span></div>
-              
-              <div style="font-weight: 500; color: #64748b;">Bereitstellung</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">24+ Stunden</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">5-10 Minuten</span></div>
-            </div>
-          </div>
-          
-          <!-- Security Row -->
-          <div class="comparison-row" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <div class="comparison-category" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-              <div style="width: 40px; height: 40px; background: #ecfdf5; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #10b981;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-              </div>
-              <h3 style="font-size: 1.25rem; margin: 0;">Sicherheit & Infrastruktur</h3>
-            </div>
-            
-            <div class="comparison-items" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-              <div style="font-weight: 500; color: #64748b;">DDoS-Schutz</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Optional</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">Inklusive</span></div>
-              
-              <div style="font-weight: 500; color: #64748b;">Rechenzentrum</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Verschieden</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">DE, ISO 27001</span></div>
-              
-              <div style="font-weight: 500; color: #64748b;">Automatische Backups</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Aufpreis</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">Inklusive</span></div>
-            </div>
-          </div>
-          
-          <!-- Service Row -->
-          <div class="comparison-row" style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <div class="comparison-category" style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-              <div style="width: 40px; height: 40px; background: #eff6ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #3b82f6;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-              </div>
-              <h3 style="font-size: 1.25rem; margin: 0;">Service & Support</h3>
-            </div>
-            
-            <div class="comparison-items" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-              <div style="font-weight: 500; color: #64748b;">Support Antwortzeit</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">1-24 Stunden</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;"><15 Minuten</span></div>
-              
-              <div style="font-weight: 500; color: #64748b;">Vertragslaufzeit</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Jährlich</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">Monatlich</span></div>
-              
-              <div style="font-weight: 500; color: #64748b;">Preistransparenz</div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #f1f5f9; color: #64748b; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block;">Versteckt</span></div>
-              <div style="text-align: center;"><span class="comparison-badge" style="background: #e0f2fe; color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; display: inline-block; font-weight: 600;">Klare Preise</span></div>
-            </div>
-          </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 4rem;">
-          <a href="#products" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.125rem; border-radius: 0.75rem; display: inline-flex; align-items: center; gap: 0.5rem;">
-            Jetzt zu Nexthosting wechseln
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
 
-  <style>
-    /* Enhanced Comparison Styles */
-    .comparison-row {
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .comparison-row:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.1) !important;
-    }
-    
-    .comparison-row::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 0;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-      transition: height 0.5s ease;
-    }
-    
-    .comparison-row:hover::before {
-      height: 100%;
-    }
-    
-    .comparison-category {
-      position: relative;
-      padding-bottom: 1rem;
-    }
-    
-    .comparison-category::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, rgba(100, 116, 139, 0.1), transparent);
-    }
-    
-    .comparison-badge {
-      transition: all 0.3s ease;
-    }
-    
-    .comparison-badge:hover {
-      transform: scale(1.05);
-    }
-    
-    @media (max-width: 768px) {
-      .comparison-header {
-        display: none;
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.3rem;
       }
-      
-      .comparison-items {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
+
+      .price-card {
+        padding: 1.7rem;
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
       }
-      
-      .comparison-items div:nth-child(2),
-      .comparison-items div:nth-child(3) {
-        text-align: left !important;
-        padding-left: 3.5rem;
+
+      .price-card.featured {
+        border: 1px solid rgba(74, 222, 128, 0.4);
+        background: linear-gradient(145deg, rgba(91, 141, 239, 0.14), rgba(74, 222, 128, 0.1));
       }
-      
-      .comparison-items div:nth-child(2)::before {
-        content: 'Andere: ';
-        color: #64748b;
-        font-weight: 400;
+
+      .price-card header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
       }
-      
-      .comparison-items div:nth-child(3)::before {
-        content: 'Nexthosting: ';
-        color: var(--primary);
+
+      .price {
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .price small {
+        color: var(--muted);
         font-weight: 600;
       }
-    }
-  </style>
-<!-- Modern Support Section -->
-  <section class="section fade-in delay-2" style="background: #f8fafc;">
-    <div class="container">
-      <h2 class="section-title">Support</h2>
-      <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #64748b;">
-        Unser Team steht dir rund um die Uhr zur Verfügung
-      </p>
-      
-      <!-- Support Intro Card -->
-      <div style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe); border-radius: 1rem; padding: 3rem; margin-bottom: 3rem; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);">
-        <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #4f46e5;">24/7 Support in Deutsch & Englisch</h3>
-        <p style="font-size: 1.125rem; color: #4f46e5; opacity: 0.9; margin-bottom: 1.5rem; max-width: 700px;">
-          Unser erfahrenes Support-Team hilft dir bei allen Fragen und Problemen - jederzeit und in deiner Sprache.
+
+      .features {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+        color: var(--muted);
+      }
+
+      .features li {
+        margin: 0.4rem 0;
+        display: flex;
+        gap: 0.55rem;
+        align-items: center;
+      }
+
+      .features li::before {
+        content: "✓";
+        color: #8be0b0;
+        font-weight: 800;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      .step {
+        padding: 1rem 1rem 1.3rem;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--card);
+      }
+
+      .step strong {
+        display: inline-flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        align-items: center;
+        justify-content: center;
+        background: rgba(91, 141, 239, 0.25);
+        margin-bottom: 0.8rem;
+      }
+
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.2rem;
+      }
+
+      .quote {
+        padding: 1.4rem;
+        border-radius: 16px;
+        background: var(--card);
+        border: 1px solid var(--border);
+      }
+
+      .quote blockquote {
+        margin: 0 0 1rem;
+        color: #cdd9ec;
+        line-height: 1.6;
+      }
+
+      .quote footer {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .cta {
+        margin: 4rem 0;
+        padding: 2.4rem;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #5b8def, #4ade80);
+        color: #0a0f1c;
+        text-align: center;
+        box-shadow: 0 30px 60px rgba(91, 141, 239, 0.35);
+      }
+
+      .cta p {
+        color: #0b1426;
+      }
+
+      footer {
+        padding: 2rem 0 3rem;
+        color: var(--muted);
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nexthosting-landing">
+      <div class="noise"></div>
+      <nav>
+        <div class="container nav-inner">
+          <div class="brand"><span>NH</span>NextHosting</div>
+          <div class="nav-links">
+            <a href="#vorteile">Vorteile</a>
+            <a href="#produkte">Produkte</a>
+            <a href="#support">Support</a>
+            <a href="#kontakt" class="btn secondary">Jetzt anfragen</a>
+          </div>
+        </div>
+      </nav>
+
+      <section class="hero container">
+        <div class="glow one"></div>
+        <div class="glow two"></div>
+        <div class="hero-grid">
+          <div>
+            <div class="pill">Premium Hosting &amp; Gameserver</div>
+            <h1>Performance, die deine Community spürt.</h1>
+            <p>
+              NextHosting liefert blitzschnelle Infrastruktur, automatisierte
+              Deployments und echten 24/7 Support. Vom ersten Webprojekt bis zum
+              großen Game-Cluster: wir sorgen für verlässliche Power.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#produkte">Produkte entdecken</a>
+              <a class="btn secondary" href="#kontakt">Kostenlos beraten lassen</a>
+            </div>
+            <div class="hero-metrics">
+              <div class="metric">
+                <strong>99,99%</strong>
+                <small>Uptime SLA mit Monitoring</small>
+              </div>
+              <div class="metric">
+                <strong>&lt;45ms</strong>
+                <small>Durchschnittliche Latenz EU-weit</small>
+              </div>
+              <div class="metric">
+                <strong>ISO 27001</strong>
+                <small>Zertifizierte Rechenzentren</small>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>Direkter Draht zu Engineers</h3>
+            <p>
+              Persönlicher Slack/Discord Channel mit Techniker:innen. Wir
+              skalieren Projekte, optimieren Latenz und übernehmen Migrationen
+              ohne Downtime.
+            </p>
+            <ul class="features">
+              <li>Managed Kubernetes &amp; CI/CD Templates</li>
+              <li>DDoS-Schutz mit Layer-7 Rules</li>
+              <li>Flexibles Stundungssystem für Peaks</li>
+              <li>Transparente Status-Page &amp; Playbooks</li>
+            </ul>
+            <a class="btn secondary" href="#support">Zum Support-Bereich</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="vorteile" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="pill">Warum NextHosting?</div>
+            <h2>Cloud-Infrastruktur mit Gaming-DNA</h2>
+            <p>
+              Unsere Plattform ist auf niedrige Latenzen, hohe
+              Ausfallsicherheit und schnelle Provisionierung ausgelegt – ideal
+              für performante Web- und Gameserver.
+            </p>
+          </div>
+          <div class="cards-grid">
+            <div class="card">
+              <div class="icon">⚡</div>
+              <h3>Sofort startklar</h3>
+              <p>Deploy in wenigen Minuten mit vorbereiteten Stacks &amp; Images.</p>
+            </div>
+            <div class="card">
+              <div class="icon">🛡️</div>
+              <h3>DDoS-geschützt</h3>
+              <p>Mehrstufige Filter, Anycast-Edge und automatische Mitigation.</p>
+            </div>
+            <div class="card">
+              <div class="icon">📈</div>
+              <h3>Transparent skalierbar</h3>
+              <p>Skalierungs-Playbooks, Auto-Scaling und klare Preislogik.</p>
+            </div>
+            <div class="card">
+              <div class="icon">🤝</div>
+              <h3>Fester Ansprechpartner</h3>
+              <p>Dedizierter Success Manager und Tech-Support ohne Wartezeiten.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="produkte" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="pill">Produkte</div>
+            <h2>Für Web, Games &amp; Communities gebaut</h2>
+            <p>Flexibel kombinierbare Pakete, jederzeit erweiterbar.</p>
+          </div>
+          <div class="pricing-grid">
+            <div class="price-card">
+              <header>
+                <h3>Webhosting</h3>
+                <span class="pill" style="background: rgba(255,255,255,0.08); color: #fff">Neu</span>
+              </header>
+              <div class="price">4,99 €<small>/Monat</small></div>
+              <ul class="features">
+                <li>NVMe-Speicher &amp; HTTP/3</li>
+                <li>Managed SSL &amp; Backups</li>
+                <li>Git Deploy &amp; Staging</li>
+                <li>Unlimitierter Traffic</li>
+              </ul>
+              <a class="btn secondary" href="#kontakt">Jetzt testen</a>
+            </div>
+            <div class="price-card featured">
+              <header>
+                <h3>VPS &amp; Cloud</h3>
+                <span class="pill" style="background: rgba(74,222,128,0.2); color: #eafff2">Beliebt</span>
+              </header>
+              <div class="price">12,90 €<small>/Monat</small></div>
+              <ul class="features">
+                <li>AMD EPYC Cores &amp; NVMe</li>
+                <li>Snapshots &amp; Auto-Scaling</li>
+                <li>Private Networking &amp; Firewall</li>
+                <li>1-Click Kubernetes / Docker</li>
+              </ul>
+              <a class="btn" href="#kontakt">Sofort starten</a>
+            </div>
+            <div class="price-card">
+              <header>
+                <h3>Gameserver</h3>
+                <span class="pill" style="background: rgba(255,255,255,0.08); color: #fff">EU Low-Latency</span>
+              </header>
+              <div class="price">ab 9,90 €<small>/Monat</small></div>
+              <ul class="features">
+                <li>Anti-DDoS speziell für Games</li>
+                <li>Automatische Mod-Installer</li>
+                <li>Live Performance Charts</li>
+                <li>Backup/Restore mit Versionierung</li>
+              </ul>
+              <a class="btn secondary" href="#kontakt">Server anfragen</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="support">
+        <div class="container">
+          <div class="section-header">
+            <div class="pill">Operations</div>
+            <h2>Mit System live gehen</h2>
+            <p>Geführte Roadmap – von der Idee bis zum stabilen Betrieb.</p>
+          </div>
+          <div class="timeline">
+            <div class="step">
+              <strong>1</strong>
+              <h3>Analyse &amp; Architektur</h3>
+              <p>Wir prüfen Anforderungen, Latenz-Ziele und Kostenrahmen.</p>
+            </div>
+            <div class="step">
+              <strong>2</strong>
+              <h3>Deployment &amp; Migration</h3>
+              <p>Zero-Downtime-Migration mit Rollback-Plan &amp; Monitoring.</p>
+            </div>
+            <div class="step">
+              <strong>3</strong>
+              <h3>Launch &amp; Härtung</h3>
+              <p>Loadtests, DDoS-Profile, Sicherheits-Scans und Backups.</p>
+            </div>
+            <div class="step">
+              <strong>4</strong>
+              <h3>Scale &amp; Iterate</h3>
+              <p>Auto-Scaling, CDN Tuning und Observability Dashboards.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Kundenstimmen">
+        <div class="container">
+          <div class="section-header">
+            <div class="pill">Kunden</div>
+            <h2>Teams, die auf uns vertrauen</h2>
+            <p>Mehr als 700 Betreiber:innen setzen auf NextHosting.</p>
+          </div>
+          <div class="testimonials">
+            <div class="quote">
+              <blockquote>
+                „Migration in 48 Stunden, keine Downtime und endlich stabile
+                Frames für unsere Community. Support reagiert innerhalb von
+                Minuten.“
+              </blockquote>
+              <footer>Julia – Gaming Network Lead</footer>
+            </div>
+            <div class="quote">
+              <blockquote>
+                „Das Monitoring und die Playbooks haben uns beim letzten Peak
+                tausende Euro an Ausfallzeit gespart.“
+              </blockquote>
+              <footer>Eric – CTO eines SaaS-Startups</footer>
+            </div>
+            <div class="quote">
+              <blockquote>
+                „Kubernetes, CI/CD und Status-Page waren nach einem Tag live –
+                so sieht modernes Hosting aus.“
+              </blockquote>
+              <footer>Mara – DevOps Engineer</footer>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container cta" id="kontakt">
+        <h2>Bereit für die nächste Stufe?</h2>
+        <p>
+          Wir beraten dich unverbindlich, richten eine Demo-Umgebung ein und
+          begleiten den Go-Live.
         </p>
-        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(79, 70, 229, 0.1); padding: 0.5rem 1rem; border-radius: 2rem; color: #4f46e5;">
-          <span style="font-weight: 500; font-size: 0.875rem;">Ø Antwortzeit: 15 min</span>
+        <div class="hero-actions" style="justify-content: center">
+          <a class="btn" href="mailto:hello@nexthosting.example">Termin buchen</a>
+          <a class="btn secondary" href="#">Live-Status ansehen</a>
         </div>
       </div>
-      
-      <!-- Support Channels Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-        <!-- Ticket System -->
-        <div style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03);">
-          <div style="width: 60px; height: 60px; background: #e0e7ff; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: #4f46e5;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-          </div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #1e293b;">Ticketsystem</h3>
-          <p style="color: #64748b; margin-bottom: 0;">Ausführliche Hilfe mit Priorisierung für komplexe Anfragen.</p>
+
+      <footer>
+        <div class="container">
+          © 2024 NextHosting – High Performance Hosting &amp; Gameserver.
+          Datenschutz · Impressum
         </div>
-        
-        <!-- Live Chat -->
-        <div style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03);">
-          <div style="width: 60px; height: 60px; background: #e0e7ff; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: #4f46e5;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-            </svg>
-          </div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #1e293b;">Live-Chat</h3>
-          <p style="color: #64748b; margin-bottom: 0;">Sofortige Hilfe direkt im Browser ohne Wartezeit.</p>
-        </div>
-        
-        <!-- Emergency Hotline -->
-        <div style="background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03);">
-          <div style="width: 60px; height: 60px; background: #e0e7ff; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: #4f46e5;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-          </div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #1e293b;">Notfall-Hotline</h3>
-          <p style="color: #64748b; margin-bottom: 0;">Direkter Kontakt für kritische Ausfälle und Server-Probleme.</p>
-        </div>
-      </div>
-      <!-- Resources Buttons -->
-      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0 3rem;">
-        <a href="/status" class="resource-button" style="background: #e0e7ff; color: #4f46e5;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-            Statusseite
-          </div>
-        </a>
-        
-        <a href="/changelog" class="resource-button" style="background: #e0f2fe; color: #0ea5e9;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline>
-            </svg>
-            Changelog
-          </div>
-        </a>
-        
-        <a href="/discord" class="resource-button" style="background: #e0e7ff; color: #4f46e5;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            Community-Discord
-          </div>
-        </a>
-        
-        <a href="/docs" class="resource-button" style="background: #e0f2fe; color: #0ea5e9;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            Dokumentation
-          </div>
-        </a>
-      </div>
-<!-- Contact Footer -->
-      <div style="text-align: center; margin-top: 3rem; color: #64748b; font-size: 0.875rem;">
-        <p>E-Mail: support@nexthosting.de | <a href="/support" style="color: #4f46e5; text-decoration: none;">Support-Portal</a></p>
-      </div>
+      </footer>
     </div>
-  </section>
-<!-- Final CTA Section -->
-  <section class="cta-section fade-in delay-1" style="background: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 100%); color: white; text-align: center; padding: 6rem 0;">
-    <div class="container">
-      <h2 class="cta-title" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Nexthosting – Dein Fundament für schnelle, stabile Projekte</h2>
-      <p class="cta-text" style="max-width: 600px; margin: 0 auto 2.5rem; opacity: 0.9;">
-        Hochleistungs-Hosting mit deutscher Infrastruktur und persönlichem Support. 
-        Starte jetzt und erlebe den Unterschied.
-      </p>
-      <a href="#products" style="display: inline-flex; align-items: center; color: var(--primary); background: white; padding: 0.75rem 1.5rem; border-radius: 999px; font-weight: 600; text-decoration: none;">
-        Alle Produkte ansehen
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.5rem;">
-          <path d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg>
-      </a>
-    </div>
-  </section>
-=======
-<div class="container">
-      <h2 class="cta-title">Bereit für das nächste Level?</h2>
-      <p class="cta-text">
-        Nexthosting bietet leistungsstarke Hosting-Lösungen mit deutscher Infrastruktur, 
-        erstklassigem Support und transparenten Preisen. Starte noch heute!
-      </p>
-      <div class="cta-actions">
-        <a href="#gameservers" class="btn btn-primary">Gameserver entdecken</a>
-        <a href="#products" class="btn btn-secondary">VPS ansehen</a>
-      </div>
-    </div>
-  </section>
-</div>
+  </body>
 </html>
